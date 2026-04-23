@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AI 스타터팩 — AI 입문자 가이드</title>
+  <title>AI 스타터팩 v2 — 벚꽃 에디션</title>
   <style>
     /* =========================================================
        RESET & BASE
@@ -25,6 +25,12 @@
       --radius:  18px;
       --nav-h:   52px;
       --font:    -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Noto Sans KR', 'Segoe UI', sans-serif;
+      /* 벚꽃 팔레트 */
+      --blossom:        #FFB3C6;
+      --blossom-deep:   #E8729A;
+      --blossom-deeper: #C94B7B;
+      --blossom-light:  #FFF0F6;
+      --blossom-text:   #5C1B3A;
     }
     html { scroll-behavior: smooth; font-family: var(--font); }
     body { background: var(--white); color: var(--gray-6); overflow-x: hidden; }
@@ -58,7 +64,7 @@
     }
     .nav-logo {
       font-size: 17px; font-weight: 700; letter-spacing: -.5px;
-      background: linear-gradient(135deg, #0071e3, #30d158);
+      background: linear-gradient(135deg, var(--blossom-deeper), var(--blossom-deep));
       -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     }
     .nav-links { display: flex; gap: 28px; }
@@ -66,21 +72,21 @@
       font-size: 13px; color: var(--gray-6); font-weight: 500;
       transition: color .2s;
     }
-    .nav-links a:hover { color: var(--blue); }
+    .nav-links a:hover { color: var(--blossom-deeper); }
     .nav-cta {
       font-size: 13px; font-weight: 600;
-      background: var(--blue); color: #fff;
+      background: var(--blossom-deeper); color: #fff;
       padding: 7px 16px; border-radius: 980px;
       transition: background .2s;
     }
-    .nav-cta:hover { background: var(--blue-h); }
+    .nav-cta:hover { background: var(--blossom-deep); }
 
     /* =========================================================
        HERO
     ========================================================= */
     #hero {
       min-height: 100vh;
-      background: linear-gradient(180deg, #0a0a0a 0%, #1a1a2e 50%, #0a0a0a 100%);
+      background: linear-gradient(180deg, #FFE5F0 0%, #FFCCE3 40%, #FFB0CA 80%, #FF9DBD 100%);
       display: flex; flex-direction: column;
       align-items: center; justify-content: center;
       text-align: center; padding: 120px 24px 80px;
@@ -89,15 +95,15 @@
     .hero-glow {
       position: absolute; width: 600px; height: 600px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(0,113,227,.25) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(232,114,154,.2) 0%, transparent 70%);
       top: 50%; left: 50%; transform: translate(-50%, -50%);
       pointer-events: none;
     }
     .hero-badge {
       display: inline-block;
-      background: rgba(255,255,255,.08);
-      border: 1px solid rgba(255,255,255,.15);
-      color: rgba(255,255,255,.7);
+      background: rgba(255,255,255,.55);
+      border: 1px solid rgba(201,75,123,.2);
+      color: var(--blossom-text);
       font-size: 12px; font-weight: 600; letter-spacing: 1px;
       padding: 6px 16px; border-radius: 980px;
       margin-bottom: 28px; text-transform: uppercase;
@@ -105,11 +111,11 @@
     #hero h1 {
       font-size: clamp(52px, 8vw, 96px);
       font-weight: 700; letter-spacing: -2px;
-      color: #fff; line-height: 1.05;
+      color: var(--gray-6); line-height: 1.05;
       margin-bottom: 20px;
     }
     #hero h1 span {
-      background: linear-gradient(135deg, #0071e3, #30d158, #0071e3);
+      background: linear-gradient(135deg, #E8729A, #C94B7B, #E8729A);
       background-size: 200%;
       -webkit-background-clip: text; -webkit-text-fill-color: transparent;
       animation: gradShift 4s linear infinite;
@@ -121,44 +127,44 @@
     }
     .hero-sub {
       font-size: clamp(18px, 2.5vw, 24px);
-      color: rgba(255,255,255,.55); font-weight: 400;
+      color: var(--blossom-text); font-weight: 400;
       max-width: 600px; line-height: 1.5; margin-bottom: 48px;
     }
     .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; margin-bottom: 80px; }
     .btn-primary {
-      background: var(--blue); color: #fff;
+      background: var(--blossom-deeper); color: #fff;
       font-size: 17px; font-weight: 600;
       padding: 16px 32px; border-radius: 980px;
       transition: all .2s; border: none; cursor: pointer;
     }
-    .btn-primary:hover { background: var(--blue-h); transform: scale(1.03); }
+    .btn-primary:hover { background: var(--blossom-deep); transform: scale(1.03); }
     .btn-ghost {
-      background: rgba(255,255,255,.1); color: #fff;
-      border: 1px solid rgba(255,255,255,.2);
+      background: rgba(255,255,255,.4); color: var(--blossom-text);
+      border: 1px solid rgba(201,75,123,.25);
       font-size: 17px; font-weight: 600;
       padding: 16px 32px; border-radius: 980px;
       transition: all .2s; cursor: pointer;
     }
-    .btn-ghost:hover { background: rgba(255,255,255,.18); }
+    .btn-ghost:hover { background: rgba(255,255,255,.65); }
     .hero-cards {
       display: grid; grid-template-columns: repeat(4, 1fr);
       gap: 16px; max-width: 900px; width: 100%;
     }
     .hero-card {
-      background: rgba(255,255,255,.06);
-      border: 1px solid rgba(255,255,255,.1);
+      background: rgba(255,255,255,.35);
+      border: 1px solid rgba(201,75,123,.15);
       border-radius: 16px; padding: 24px 16px;
       cursor: pointer; transition: all .25s;
       text-decoration: none;
     }
     .hero-card:hover {
-      background: rgba(255,255,255,.11);
+      background: rgba(255,255,255,.6);
       transform: translateY(-4px);
-      border-color: rgba(255,255,255,.2);
+      border-color: rgba(201,75,123,.3);
     }
     .hero-card-icon { font-size: 28px; margin-bottom: 10px; }
-    .hero-card-title { font-size: 13px; font-weight: 600; color: #fff; margin-bottom: 4px; }
-    .hero-card-desc { font-size: 11px; color: rgba(255,255,255,.45); }
+    .hero-card-title { font-size: 13px; font-weight: 600; color: var(--gray-6); margin-bottom: 4px; }
+    .hero-card-desc { font-size: 11px; color: var(--blossom-text); opacity: .7; }
 
     /* =========================================================
        SECTION BASE
@@ -322,45 +328,45 @@
 
 
     /* =========================================================
-       SECTION 4 — VS Code 확장 프로그램 (다크)
+       SECTION 4 — Google Antigravity 확장 프로그램 (벚꽃)
     ========================================================= */
-    #vscode-ext { background: var(--gray-6); color: var(--white); }
-    #vscode-ext .section-title { color: var(--white); }
-    #vscode-ext .section-sub { color: var(--gray-4); }
-    #vscode-ext .section-tag { color: #30d158; }
+    #vscode-ext { background: linear-gradient(135deg, #FFCCE3 0%, #FFB3C6 50%, #FFCCE3 100%); color: var(--gray-6); }
+    #vscode-ext .section-title { color: var(--gray-6); }
+    #vscode-ext .section-sub { color: var(--blossom-text); }
+    #vscode-ext .section-tag { color: var(--blossom-deeper); }
     .vsc-howto {
-      background: rgba(255,255,255,.05);
+      background: rgba(255,255,255,.5);
       border-radius: var(--radius);
       padding: 36px 40px;
       margin-bottom: 48px;
-      border: 1px solid rgba(255,255,255,.1);
+      border: 1px solid rgba(201,75,123,.15);
     }
     .vsc-howto-title {
       font-size: 18px; font-weight: 700;
-      margin-bottom: 24px; color: var(--white);
+      margin-bottom: 24px; color: var(--gray-6);
       display: flex; align-items: center; gap: 10px;
     }
     .vsc-howto-steps { display: flex; flex-direction: column; gap: 16px; margin-bottom: 28px; }
     .vsc-how-step {
       display: flex; align-items: flex-start; gap: 14px;
-      font-size: 14px; color: var(--gray-4); line-height: 1.6;
+      font-size: 14px; color: var(--blossom-text); line-height: 1.6;
     }
     .vsc-step-num {
       width: 26px; height: 26px; border-radius: 50%;
-      background: rgba(255,255,255,.15); color: #fff;
+      background: var(--blossom-deeper); color: #fff;
       font-size: 12px; font-weight: 700;
       display: flex; align-items: center; justify-content: center;
       flex-shrink: 0; margin-top: 1px;
     }
-    .vsc-how-step strong { color: var(--white); }
+    .vsc-how-step strong { color: var(--gray-6); }
     .vsc-code {
-      background: rgba(255,255,255,.1); padding: 2px 8px;
+      background: rgba(201,75,123,.1); padding: 2px 8px;
       border-radius: 6px; font-size: 12px;
-      font-family: 'Courier New', monospace; color: #30d158;
+      font-family: 'Courier New', monospace; color: var(--blossom-deeper);
     }
     .vsc-store-btn {
       display: inline-flex; align-items: center; gap: 6px;
-      background: #30d158; color: #000;
+      background: var(--blossom-deeper); color: #fff;
       font-size: 14px; font-weight: 700;
       padding: 12px 24px; border-radius: 980px;
       transition: opacity .2s;
@@ -372,20 +378,20 @@
       gap: 20px;
     }
     .vsc-card {
-      background: rgba(255,255,255,.05);
-      border: 1px solid rgba(255,255,255,.1);
+      background: rgba(255,255,255,.5);
+      border: 1px solid rgba(201,75,123,.15);
       border-radius: var(--radius); padding: 28px 24px;
       transition: all .25s;
       display: flex; flex-direction: column; gap: 12px;
     }
-    .vsc-card:hover { background: rgba(255,255,255,.09); border-color: rgba(255,255,255,.2); transform: translateY(-3px); }
+    .vsc-card:hover { background: rgba(255,255,255,.75); border-color: rgba(201,75,123,.3); transform: translateY(-3px); }
     .vsc-card-top { display: flex; align-items: center; justify-content: space-between; }
     .vsc-icon { font-size: 34px; line-height: 1; }
-    .vsc-card h3 { font-size: 17px; font-weight: 700; color: #fff; }
-    .vsc-card p { font-size: 13px; color: var(--gray-4); line-height: 1.65; }
+    .vsc-card h3 { font-size: 17px; font-weight: 700; color: var(--gray-6); }
+    .vsc-card p { font-size: 13px; color: var(--blossom-text); line-height: 1.65; }
     .vsc-link {
       display: inline-flex; align-items: center; gap: 5px;
-      font-size: 13px; font-weight: 600; color: #30d158;
+      font-size: 13px; font-weight: 600; color: var(--blossom-deeper);
       margin-top: auto;
     }
     .vsc-link:hover { text-decoration: underline; }
@@ -412,7 +418,7 @@
       margin-bottom: 20px; color: var(--gray-6);
     }
     .rc-title span {
-      background: linear-gradient(135deg, #0071e3, #30d158);
+      background: linear-gradient(135deg, var(--blossom-deeper), var(--blossom-deep));
       -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     }
     .rc-sub {
@@ -445,25 +451,25 @@
     .rc-cta:hover { background: var(--blue-h); transform: scale(1.03); }
 
     /* =========================================================
-       SECTION — AI 필수도구 사용법 (다크)
+       SECTION — AI 필수도구 사용법 (벚꽃)
     ========================================================= */
-    #guide { background: var(--gray-6); color: var(--white); }
-    #guide .section-title { color: var(--white); }
-    #guide .section-sub { color: var(--gray-4); }
-    #guide .section-tag { color: #ffd60a; }
+    #guide { background: linear-gradient(135deg, #FFB3C6 0%, #FFCCE3 50%, #FFB3C6 100%); color: var(--gray-6); }
+    #guide .section-title { color: var(--gray-6); }
+    #guide .section-sub { color: var(--blossom-text); }
+    #guide .section-tag { color: var(--blossom-deeper); }
     .guide-tabs {
       display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 40px;
     }
     .guide-tab-btn {
       padding: 10px 22px; border-radius: 980px;
-      border: 1.5px solid rgba(255,255,255,.15);
-      background: transparent; color: rgba(255,255,255,.6);
+      border: 1.5px solid rgba(201,75,123,.2);
+      background: rgba(255,255,255,.35); color: var(--blossom-text);
       font-size: 14px; font-weight: 500;
       cursor: pointer; transition: all .2s;
       display: flex; align-items: center; gap: 8px;
     }
     .guide-tab-btn.active, .guide-tab-btn:hover {
-      background: rgba(255,255,255,.12); border-color: rgba(255,255,255,.3); color: #fff;
+      background: rgba(255,255,255,.65); border-color: rgba(201,75,123,.4); color: var(--gray-6);
     }
     .guide-tab-btn img { border-radius: 4px; }
     .guide-panel { display: none; }
@@ -471,98 +477,98 @@
     .guide-step-group { margin-bottom: 64px; }
     .guide-step-group:last-child { margin-bottom: 0; }
     .guide-step-title {
-      font-size: 22px; font-weight: 700; color: #fff;
+      font-size: 22px; font-weight: 700; color: var(--gray-6);
       margin-bottom: 28px; padding-bottom: 14px;
-      border-bottom: 1px solid rgba(255,255,255,.1);
+      border-bottom: 1px solid rgba(201,75,123,.2);
       display: flex; align-items: center; gap: 12px;
     }
     .guide-step-badge {
       display: inline-flex; align-items: center; justify-content: center;
       width: 30px; height: 30px; border-radius: 50%;
-      background: #ffd60a; color: #000;
+      background: var(--blossom-deeper); color: #fff;
       font-size: 13px; font-weight: 800; flex-shrink: 0;
     }
     .guide-step-content {
       display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: start;
     }
     @media (max-width: 768px) { .guide-step-content { grid-template-columns: 1fr; } }
-    .guide-step-desc p { font-size: 15px; color: var(--gray-4); line-height: 1.75; margin-bottom: 16px; }
+    .guide-step-desc p { font-size: 15px; color: var(--blossom-text); line-height: 1.75; margin-bottom: 16px; }
     .guide-step-desc ul { padding-left: 18px; display: flex; flex-direction: column; gap: 8px; }
-    .guide-step-desc li { font-size: 14px; color: var(--gray-4); line-height: 1.6; }
-    .guide-step-desc strong { color: #fff; }
+    .guide-step-desc li { font-size: 14px; color: var(--blossom-text); line-height: 1.6; }
+    .guide-step-desc strong { color: var(--gray-6); }
     .guide-section-label {
       font-size: 11px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase;
-      color: rgba(255,255,255,.4); margin-bottom: 10px; margin-top: 20px;
+      color: rgba(92,27,58,.5); margin-bottom: 10px; margin-top: 20px;
     }
     .guide-feature-box {
-      background: rgba(255,255,255,.05);
-      border: 1px solid rgba(255,255,255,.1);
+      background: rgba(255,255,255,.45);
+      border: 1px solid rgba(201,75,123,.15);
       border-radius: 12px; padding: 18px 20px;
       margin-bottom: 16px;
     }
     .guide-feature-box ul { padding-left: 18px; display: flex; flex-direction: column; gap: 8px; }
-    .guide-feature-box li { font-size: 14px; color: var(--gray-4); line-height: 1.6; }
+    .guide-feature-box li { font-size: 14px; color: var(--blossom-text); line-height: 1.6; }
     .guide-use-box {
-      background: rgba(255,214,10,.06);
-      border: 1px solid rgba(255,214,10,.2);
+      background: rgba(255,255,255,.45);
+      border: 1px solid rgba(201,75,123,.2);
       border-radius: 12px; padding: 18px 20px;
       margin-bottom: 16px;
     }
     .guide-use-box ul { padding-left: 18px; display: flex; flex-direction: column; gap: 8px; }
-    .guide-use-box li { font-size: 14px; color: rgba(255,255,255,.7); line-height: 1.6; }
-    .guide-use-box li em { color: #ffd60a; font-style: normal; }
+    .guide-use-box li { font-size: 14px; color: var(--blossom-text); line-height: 1.6; }
+    .guide-use-box li em { color: var(--blossom-deeper); font-style: normal; font-weight: 600; }
     .guide-how-box {
-      background: rgba(255,255,255,.05);
-      border: 1px solid rgba(255,255,255,.1);
+      background: rgba(255,255,255,.45);
+      border: 1px solid rgba(201,75,123,.15);
       border-radius: 12px; padding: 18px 20px;
       margin-bottom: 16px;
     }
     .guide-how-box ol { padding-left: 20px; display: flex; flex-direction: column; gap: 10px; }
-    .guide-how-box li { font-size: 14px; color: var(--gray-4); line-height: 1.65; }
-    .guide-how-box li strong { color: #fff; }
-    .guide-how-box li code { background: rgba(255,255,255,.08); padding: 1px 7px; border-radius: 5px; font-family: 'Courier New', monospace; font-size: 12px; color: #fff; }
+    .guide-how-box li { font-size: 14px; color: var(--blossom-text); line-height: 1.65; }
+    .guide-how-box li strong { color: var(--gray-6); }
+    .guide-how-box li code { background: rgba(201,75,123,.1); padding: 1px 7px; border-radius: 5px; font-family: 'Courier New', monospace; font-size: 12px; color: var(--blossom-deeper); }
     .guide-tip {
       margin-top: 16px; padding: 14px 16px;
-      background: rgba(255,214,10,.08); border-left: 3px solid #ffd60a;
-      border-radius: 8px; font-size: 13px; color: rgba(255,255,255,.7); line-height: 1.6;
+      background: rgba(255,255,255,.4); border-left: 3px solid var(--blossom-deeper);
+      border-radius: 8px; font-size: 13px; color: var(--blossom-text); line-height: 1.6;
     }
     .guide-img-wrap {
       border-radius: 12px; overflow: hidden;
-      border: 1px solid rgba(255,255,255,.1);
-      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(201,75,123,.15);
+      background: rgba(255,255,255,.3);
     }
     .guide-img-wrap img { width: 100%; display: block; }
     .guide-img-caption {
-      text-align: center; font-size: 12px; color: rgba(255,255,255,.35); padding: 10px 12px;
+      text-align: center; font-size: 12px; color: rgba(92,27,58,.5); padding: 10px 12px;
     }
     .guide-cmd {
-      display: inline-block; background: rgba(255,255,255,.08);
+      display: inline-block; background: rgba(201,75,123,.1);
       padding: 2px 10px; border-radius: 6px;
-      font-family: 'Courier New', monospace; font-size: 13px; color: #30d158;
+      font-family: 'Courier New', monospace; font-size: 13px; color: var(--blossom-deeper);
     }
 
     /* =========================================================
-       SECTION 2 — 프로그램 설치 (다크)
+       SECTION 2 — 프로그램 설치 (벚꽃)
     ========================================================= */
-    #install { background: var(--gray-6); color: var(--white); }
-    #install .section-title { color: var(--white); }
-    #install .section-sub { color: var(--gray-4); }
-    #install .section-tag { color: #30d158; }
+    #install { background: linear-gradient(135deg, #FFCCE3 0%, #FFB3C6 50%, #FFCCE3 100%); color: var(--gray-6); }
+    #install .section-title { color: var(--gray-6); }
+    #install .section-sub { color: var(--blossom-text); }
+    #install .section-tag { color: var(--blossom-deeper); }
     .install-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
       gap: 20px;
     }
     .install-card {
-      background: rgba(255,255,255,.05);
-      border: 1px solid rgba(255,255,255,.1);
+      background: rgba(255,255,255,.5);
+      border: 1px solid rgba(201,75,123,.15);
       border-radius: var(--radius); padding: 32px 28px;
       transition: all .25s;
     }
     .install-card:hover {
-      background: rgba(255,255,255,.09);
+      background: rgba(255,255,255,.75);
       transform: translateY(-4px);
-      border-color: rgba(255,255,255,.2);
+      border-color: rgba(201,75,123,.3);
     }
     .install-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
     .install-icon { font-size: 36px; }
@@ -570,29 +576,43 @@
     .os-badge {
       font-size: 10px; font-weight: 600;
       padding: 3px 8px; border-radius: 980px;
-      background: rgba(255,255,255,.1); color: rgba(255,255,255,.7);
+      background: rgba(255,255,255,.6); color: var(--blossom-text);
     }
     .diff-badge {
       font-size: 10px; font-weight: 700;
       padding: 3px 8px; border-radius: 980px;
     }
-    .diff-easy   { background: rgba(48,209,88,.15);  color: #30d158; }
-    .diff-medium { background: rgba(255,214,10,.15); color: #ffd60a; }
-    .diff-hard   { background: rgba(255,69,58,.15);  color: #ff453a; }
-    .install-card h3 { font-size: 20px; font-weight: 700; color: #fff; margin-bottom: 8px; }
-    .install-card p { font-size: 14px; color: var(--gray-4); line-height: 1.6; margin-bottom: 16px; }
+    .diff-easy   { background: rgba(48,209,88,.15);  color: #1a7a3c; }
+    .diff-medium { background: rgba(201,75,123,.12); color: var(--blossom-deeper); }
+    .diff-hard   { background: rgba(255,69,58,.12);  color: #c0392b; }
+    .install-card h3 { font-size: 20px; font-weight: 700; color: var(--gray-6); margin-bottom: 8px; }
+    .install-card p { font-size: 14px; color: var(--blossom-text); line-height: 1.6; margin-bottom: 16px; }
     .install-link {
       display: inline-flex; align-items: center; gap: 6px;
-      font-size: 14px; font-weight: 600; color: #30d158;
+      font-size: 14px; font-weight: 600; color: var(--blossom-deeper);
     }
     .install-link:hover { text-decoration: underline; }
     .install-tip {
       margin-top: 12px; padding: 12px 14px;
-      background: rgba(0,113,227,.15); border-left: 3px solid var(--blue);
-      border-radius: 8px; font-size: 12px; color: rgba(255,255,255,.6);
+      background: rgba(255,255,255,.4); border-left: 3px solid var(--blossom-deeper);
+      border-radius: 8px; font-size: 12px; color: var(--blossom-text);
       line-height: 1.5;
     }
-    .star-rating { color: #ffd60a; font-size: 13px; }
+    .star-rating { color: var(--blossom-deeper); font-size: 13px; }
+    .install-notice {
+      display: flex; align-items: flex-start; gap: 16px;
+      background: rgba(255,255,255,.7);
+      border: 2px solid var(--blossom-deeper);
+      border-radius: var(--radius);
+      padding: 24px 28px;
+      margin-bottom: 40px;
+    }
+    .install-notice-icon { font-size: 28px; flex-shrink: 0; line-height: 1.3; }
+    .install-notice-body strong {
+      display: block; font-size: 17px; font-weight: 700;
+      color: var(--gray-6); margin-bottom: 6px;
+    }
+    .install-notice-body p { font-size: 14px; color: var(--blossom-text); line-height: 1.6; margin: 0; }
 
     /* =========================================================
        SECTION 5 — AI 도구 소개 (라이트)
@@ -610,7 +630,7 @@
       cursor: pointer; transition: all .2s;
     }
     .tab-btn.active, .tab-btn:hover {
-      background: var(--gray-6); color: var(--white); border-color: var(--gray-6);
+      background: var(--blossom-deeper); color: var(--white); border-color: var(--blossom-deeper);
     }
     .tools-panel { display: none; }
     .tools-panel.active { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
@@ -632,40 +652,40 @@
     .tool-stars { font-size: 12px; color: #ffd60a; }
 
     /* =========================================================
-       SECTION 6 — 용어 사전 (다크)
+       SECTION 6 — 용어 사전 (벚꽃)
     ========================================================= */
-    #glossary { background: #0a0a0a; }
-    #glossary .section-title { color: var(--white); }
-    #glossary .section-sub { color: var(--gray-4); }
-    #glossary .section-tag { color: #ffd60a; }
+    #glossary { background: linear-gradient(135deg, #FFB3C6 0%, #FFD6E7 50%, #FFB3C6 100%); }
+    #glossary .section-title { color: var(--gray-6); }
+    #glossary .section-sub { color: var(--blossom-text); }
+    #glossary .section-tag { color: var(--blossom-deeper); }
     .glossary-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
       gap: 2px;
     }
     .gloss-item {
-      border: 1px solid rgba(255,255,255,.08);
+      border: 1px solid rgba(201,75,123,.15);
       border-radius: 12px; margin: 4px;
       overflow: hidden;
     }
     .gloss-q {
       display: flex; align-items: center; justify-content: space-between;
       padding: 20px 24px; cursor: pointer;
-      background: rgba(255,255,255,.03);
+      background: rgba(255,255,255,.4);
       transition: background .2s;
       user-select: none;
     }
-    .gloss-q:hover { background: rgba(255,255,255,.06); }
+    .gloss-q:hover { background: rgba(255,255,255,.65); }
     .gloss-q-left { display: flex; align-items: center; gap: 14px; }
     .gloss-emoji { font-size: 20px; }
-    .gloss-term { font-size: 17px; font-weight: 700; color: #fff; }
+    .gloss-term { font-size: 17px; font-weight: 700; color: var(--gray-6); }
     .gloss-category {
       font-size: 10px; font-weight: 600; letter-spacing: .5px;
       padding: 2px 8px; border-radius: 980px;
-      background: rgba(255,255,255,.08); color: rgba(255,255,255,.5);
+      background: rgba(201,75,123,.12); color: var(--blossom-deeper);
     }
     .gloss-arrow {
-      font-size: 12px; color: rgba(255,255,255,.3);
+      font-size: 12px; color: rgba(92,27,58,.4);
       transition: transform .3s;
     }
     .gloss-item.open .gloss-arrow { transform: rotate(180deg); }
@@ -673,13 +693,14 @@
       max-height: 0; overflow: hidden;
       transition: max-height .35s ease, padding .35s;
       padding: 0 24px;
+      background: rgba(255,255,255,.5);
     }
     .gloss-item.open .gloss-a { max-height: 300px; padding: 0 24px 20px; }
-    .gloss-a p { font-size: 14px; color: var(--gray-4); line-height: 1.7; }
+    .gloss-a p { font-size: 14px; color: var(--blossom-text); line-height: 1.7; }
     .gloss-a .gloss-example {
       margin-top: 10px; padding: 10px 14px;
-      background: rgba(255,255,255,.04); border-radius: 8px;
-      font-size: 12px; color: rgba(255,255,255,.4);
+      background: rgba(201,75,123,.06); border-radius: 8px;
+      font-size: 12px; color: var(--blossom-text); opacity: .7;
       font-style: italic;
     }
 
@@ -746,50 +767,51 @@
     .copy-btn:hover { text-decoration: underline; }
 
     /* =========================================================
-       SECTION 8 — FAQ (다크)
+       SECTION 8 — FAQ (벚꽃)
     ========================================================= */
-    #faq { background: var(--gray-6); }
-    #faq .section-title { color: var(--white); }
-    #faq .section-sub { color: var(--gray-4); }
-    #faq .section-tag { color: var(--blue); }
+    #faq { background: linear-gradient(135deg, #FFCCE3 0%, #FFB3C6 50%, #FFCCE3 100%); }
+    #faq .section-title { color: var(--gray-6); }
+    #faq .section-sub { color: var(--blossom-text); }
+    #faq .section-tag { color: var(--blossom-deeper); }
     .faq-list { display: flex; flex-direction: column; gap: 12px; max-width: 800px; }
     .faq-item {
-      border: 1px solid rgba(255,255,255,.1);
+      border: 1px solid rgba(201,75,123,.15);
       border-radius: 14px; overflow: hidden;
     }
     .faq-q {
       display: flex; align-items: center; justify-content: space-between;
       padding: 22px 24px; cursor: pointer;
-      background: rgba(255,255,255,.03);
+      background: rgba(255,255,255,.4);
       transition: background .2s; gap: 16px;
     }
-    .faq-q:hover { background: rgba(255,255,255,.06); }
-    .faq-q-text { font-size: 16px; font-weight: 600; color: #fff; }
+    .faq-q:hover { background: rgba(255,255,255,.65); }
+    .faq-q-text { font-size: 16px; font-weight: 600; color: var(--gray-6); }
     .faq-icon {
       width: 28px; height: 28px; border-radius: 50%;
-      background: rgba(255,255,255,.08); color: rgba(255,255,255,.6);
+      background: rgba(201,75,123,.12); color: var(--blossom-deeper);
       display: flex; align-items: center; justify-content: center;
       font-size: 18px; flex-shrink: 0;
       transition: transform .3s, background .2s;
     }
-    .faq-item.open .faq-icon { transform: rotate(45deg); background: rgba(255,255,255,.15); }
+    .faq-item.open .faq-icon { transform: rotate(45deg); background: rgba(201,75,123,.2); }
     .faq-a {
       max-height: 0; overflow: hidden;
       transition: max-height .35s ease, padding .35s;
       padding: 0 24px;
+      background: rgba(255,255,255,.5);
     }
     .faq-item.open .faq-a { max-height: 300px; padding: 0 24px 22px; }
-    .faq-a p { font-size: 14px; color: var(--gray-4); line-height: 1.75; }
-    .faq-a strong { color: #fff; }
+    .faq-a p { font-size: 14px; color: var(--blossom-text); line-height: 1.75; }
+    .faq-a strong { color: var(--gray-6); }
 
     /* =========================================================
        FOOTER
     ========================================================= */
     #footer {
-      background: #0a0a0a;
-      border-top: 1px solid rgba(255,255,255,.08);
+      background: linear-gradient(135deg, #FFD6E7 0%, #FFB3C6 100%);
+      border-top: 1px solid rgba(201,75,123,.15);
       padding: 48px 24px 36px;
-      color: rgba(255,255,255,.4);
+      color: var(--blossom-text);
     }
     .footer-inner { max-width: 1200px; margin: 0 auto; }
     .footer-top {
@@ -798,19 +820,19 @@
     }
     .footer-brand h2 {
       font-size: 20px; font-weight: 700;
-      background: linear-gradient(135deg, #0071e3, #30d158);
+      background: linear-gradient(135deg, var(--blossom-deeper), var(--blossom-deep));
       -webkit-background-clip: text; -webkit-text-fill-color: transparent;
       margin-bottom: 8px;
     }
     .footer-brand p { font-size: 13px; line-height: 1.6; max-width: 300px; }
     .footer-links { display: flex; gap: 48px; flex-wrap: wrap; }
-    .footer-col h4 { font-size: 13px; font-weight: 700; color: rgba(255,255,255,.7); margin-bottom: 12px; }
+    .footer-col h4 { font-size: 13px; font-weight: 700; color: var(--gray-6); margin-bottom: 12px; }
     .footer-col a {
-      display: block; font-size: 12px; color: rgba(255,255,255,.4);
+      display: block; font-size: 12px; color: var(--blossom-text);
       margin-bottom: 8px; transition: color .2s;
     }
-    .footer-col a:hover { color: rgba(255,255,255,.8); }
-    .footer-divider { border: none; border-top: 1px solid rgba(255,255,255,.08); margin-bottom: 20px; }
+    .footer-col a:hover { color: var(--blossom-deeper); }
+    .footer-divider { border: none; border-top: 1px solid rgba(201,75,123,.2); margin-bottom: 20px; }
     .footer-bottom {
       display: flex; justify-content: space-between;
       font-size: 12px; flex-wrap: wrap; gap: 8px;
@@ -931,11 +953,11 @@
     <div class="nav-links">
       <a href="#ready">준비 단계</a>
       <a href="#install">프로그램 설치</a>
-      <a href="#extensions">Chrome 확장</a>
-      <a href="#vscode-ext">VS Code 확장</a>
+      <a href="#extensions">Extension 설치</a>
       <a href="#guide">필수도구 사용법</a>
       <a href="#tools">도구 소개</a>
       <a href="#glossary">용어 사전</a>
+      <a href="#prompt">프롬프트 엔지니어링</a>
       <a href="#faq">FAQ</a>
     </div>
     <a href="#ready" class="nav-cta">시작하기 →</a>
@@ -963,7 +985,7 @@
     <a href="#guide" class="hero-card">
       <div class="hero-card-icon"><i data-lucide="monitor-check" style="width:30px;height:30px;stroke-width:1.8;vertical-align:middle;flex-shrink:0;display:inline-block;"></i></div>
       <div class="hero-card-title">AI 필수도구 사용법</div>
-      <div class="hero-card-desc">Claude Desktop, VS Code, NotebookLM 등</div>
+      <div class="hero-card-desc">Claude Desktop, Antigravity, NotebookLM 등</div>
     </a>
     <a href="#glossary" class="hero-card">
       <div class="hero-card-icon"><i data-lucide="book-open" style="width:30px;height:30px;stroke-width:1.8;vertical-align:middle;flex-shrink:0;display:inline-block;"></i></div>
@@ -1172,7 +1194,16 @@ SECTION 2 — 프로그램 설치 (다크)
   <div class="section-inner">
     <div class="section-tag reveal">Step 02</div>
     <h2 class="section-title reveal">프로그램<br>설치 가이드</h2>
-    <p class="section-sub reveal">한 번만 설치해두면 두고두고 써먹어요. 순서대로 설치해 주세요.</p>
+    <p class="section-sub reveal">한 번만 설치해두면 두고두고 써먹어요.</p>
+
+    <div class="install-notice reveal">
+      <div class="install-notice-icon">⚠️</div>
+      <div class="install-notice-body">
+        <strong>모든 프로그램을 빠짐없이 설치해 주세요</strong>
+        <p>아래 프로그램들은 AI를 제대로 활용하기 위한 필수 도구들이에요. 번호 순서대로 하나씩 설치하면 가장 수월합니다.</p>
+      </div>
+    </div>
+
     <div class="install-grid">
 
       <div class="install-card reveal">
@@ -1236,17 +1267,17 @@ SECTION 2 — 프로그램 설치 (다크)
 
       <div class="install-card reveal">
         <div class="install-top">
-          <span class="install-icon"><img src="https://www.google.com/s2/favicons?domain=code.visualstudio.com&sz=64" alt="5. VS Code" style="width:38px;height:38px;border-radius:6px;object-fit:contain;display:block;"></span>
+          <span class="install-icon"><img src="https://www.google.com/s2/favicons?domain=antigravity.google&sz=64" alt="5. Google Antigravity" style="width:38px;height:38px;border-radius:6px;object-fit:contain;display:block;"></span>
           <div class="install-badges">
             <span class="os-badge">Windows</span>
             <span class="os-badge">Mac</span>
             <span class="diff-badge diff-easy">★☆☆ 쉬움</span>
           </div>
         </div>
-        <h3>5. VS Code</h3>
-        <p>가장 널리 쓰이는 무료 코드 에디터. AI 확장 플러그인(GitHub Copilot 등)을 설치하면 AI와 함께 코딩이 가능합니다.</p>
-        <a href="https://code.visualstudio.com" target="_blank" class="install-link">다운로드 →</a>
-        <div class="install-tip">💡 Extensions에서 "Korean Language Pack"을 설치하면 한국어 UI로 바꿀 수 있어요.</div>
+        <h3>5. Google Antigravity</h3>
+        <p>VS Code 기반의 Google 코드 에디터. Gemini AI가 기본 내장되어 있고 VS Code 확장을 그대로 사용할 수 있어 AI 코딩에 최적화되어 있습니다.</p>
+        <a href="https://antigravity.google" target="_blank" class="install-link">다운로드 →</a>
+        <div class="install-tip">💡 Google 계정으로 바로 로그인 가능. Gemini Code Assist가 기본 탑재되어 있어요.</div>
       </div>
 
       <div class="install-card reveal">
@@ -1261,7 +1292,7 @@ SECTION 2 — 프로그램 설치 (다크)
         <h3>6. Claude Code</h3>
         <p>터미널에서 AI와 함께 코딩하는 도구. 코드 작성, 디버깅, 파일 수정 등을 AI가 직접 실행합니다. Node.js(4번) 설치 후 진행하세요.</p>
         <a href="https://docs.anthropic.com/ko/docs/claude-code" target="_blank" class="install-link">설치 가이드 →</a>
-        <div class="install-tip">💡 터미널에서 <code style="background:rgba(255,255,255,.08);padding:2px 6px;border-radius:4px;font-size:11px;">npm install -g @anthropic-ai/claude-code</code> 입력</div>
+        <div class="install-tip">💡 터미널에서 <code style="background:rgba(201,75,123,.1);padding:2px 6px;border-radius:4px;font-size:11px;">npm install -g @anthropic-ai/claude-code</code> 입력</div>
       </div>
 
       <div class="install-card reveal">
@@ -1304,7 +1335,7 @@ SECTION 2 — 프로그램 설치 (다크)
 <section id="extensions">
   <div class="section-inner">
     <div class="section-tag reveal">Step 03</div>
-    <h2 class="section-title reveal">Chrome<br>확장 프로그램</h2>
+    <h2 class="section-title reveal"><img src="https://www.google.com/s2/favicons?domain=chrome.google.com&sz=64" alt="Chrome" style="width:48px;height:48px;border-radius:10px;vertical-align:middle;margin-right:14px;object-fit:contain;">Chrome<br>확장 프로그램</h2>
     <p class="section-sub reveal">Chrome 웹 스토어에서 AI 확장 프로그램을 설치하면 브라우저 안에서 바로 AI를 쓸 수 있어요.</p>
 
     <!-- 웹 스토어 접속 안내 -->
@@ -1397,25 +1428,25 @@ SECTION 2 — 프로그램 설치 (다크)
 </section>
 
 <!-- ============================================================
-     SECTION 4 — VS Code 확장 프로그램
+     SECTION 4 — Google Antigravity 확장 프로그램
 ============================================================ -->
 <section id="vscode-ext">
   <div class="section-inner">
     <div class="section-tag reveal">Step 04</div>
-    <h2 class="section-title reveal">VS Code<br>확장 프로그램</h2>
-    <p class="section-sub reveal">VS Code에 확장 프로그램을 설치하면 AI 코딩 어시스턴트부터 개발 편의 도구까지 한 번에 활용할 수 있어요.</p>
+    <h2 class="section-title reveal"><img src="https://www.google.com/s2/favicons?domain=antigravity.google&sz=64" alt="Antigravity" style="width:48px;height:48px;border-radius:10px;vertical-align:middle;margin-right:14px;object-fit:contain;">Google Antigravity<br>확장 프로그램</h2>
+    <p class="section-sub reveal">VS Code에서 파생된 Google의 코드 에디터, Antigravity. Gemini AI가 내장되어 있고 VS Code 확장을 그대로 사용할 수 있어요.</p>
 
     <!-- 설치 방법 안내 -->
     <div class="vsc-howto reveal">
-      <div class="vsc-howto-title"><i data-lucide="package" style="width:18px;height:18px;stroke-width:1.8;"></i> VS Code 확장 설치 방법</div>
+      <div class="vsc-howto-title"><i data-lucide="package" style="width:18px;height:18px;stroke-width:1.8;"></i> Antigravity 확장 설치 방법</div>
       <div class="vsc-howto-steps">
         <div class="vsc-how-step">
           <span class="vsc-step-num">1</span>
-          <div>VS Code를 열고 왼쪽 사이드바에서 <strong>Extensions 아이콘</strong>을 클릭하거나 <code class="vsc-code">Ctrl+Shift+X</code> 를 누르세요.</div>
+          <div>Antigravity를 열고 왼쪽 사이드바에서 <strong>Extensions 아이콘</strong>을 클릭하거나 <code class="vsc-code">Ctrl+Shift+X</code>를 누르세요.</div>
         </div>
         <div class="vsc-how-step">
           <span class="vsc-step-num">2</span>
-          <div>검색창에 설치할 <strong>확장 프로그램 이름</strong>을 입력하세요.</div>
+          <div>검색창에 설치할 <strong>확장 프로그램 이름</strong>을 입력하세요. VS Code Marketplace 확장을 그대로 사용할 수 있어요.</div>
         </div>
         <div class="vsc-how-step">
           <span class="vsc-step-num">3</span>
@@ -1425,27 +1456,27 @@ SECTION 2 — 프로그램 설치 (다크)
       <a href="https://marketplace.visualstudio.com/" target="_blank" class="vsc-store-btn">VS Code Marketplace 바로가기 →</a>
     </div>
 
-    <!-- VS Code 확장 카드 -->
+    <!-- Antigravity 확장 카드 -->
     <div class="vsc-grid">
+
+      <div class="vsc-card reveal">
+        <div class="vsc-card-top">
+          <span class="vsc-icon"><img src="https://www.google.com/s2/favicons?domain=gemini.google.com&sz=64" alt="Gemini Code Assist" style="width:38px;height:38px;border-radius:6px;object-fit:contain;display:block;"></span>
+          <span class="badge badge-freemium">💙 프리미엄</span>
+        </div>
+        <h3>Gemini Code Assist</h3>
+        <p>Google의 Gemini AI가 코드 자동완성·설명·리팩터링을 지원. Antigravity에 기본 내장되어 있으며 더 강력한 기능은 확장으로 추가할 수 있어요.</p>
+        <a href="https://marketplace.visualstudio.com/items?itemName=Google.geminicodeassist" target="_blank" class="vsc-link">Marketplace에서 설치 →</a>
+      </div>
 
       <div class="vsc-card reveal">
         <div class="vsc-card-top">
           <span class="vsc-icon"><img src="https://www.google.com/s2/favicons?domain=claude.ai&sz=64" alt="Claude Code" style="width:38px;height:38px;border-radius:6px;object-fit:contain;display:block;"></span>
           <span class="badge badge-freemium">💙 프리미엄</span>
         </div>
-        <h3>Claude Code for VS Code</h3>
-        <p>Anthropic의 Claude AI를 VS Code에서 바로 사용. 코드 작성·리뷰·설명·리팩터링을 자연어로 요청할 수 있습니다.</p>
+        <h3>Claude Code</h3>
+        <p>Anthropic의 Claude AI를 에디터에서 바로 사용. 코드 작성·리뷰·설명·리팩터링을 자연어로 요청할 수 있습니다.</p>
         <a href="https://marketplace.visualstudio.com/search?term=Claude+Code&target=VSCode" target="_blank" class="vsc-link">Marketplace에서 설치 →</a>
-      </div>
-
-      <div class="vsc-card reveal">
-        <div class="vsc-card-top">
-          <span class="vsc-icon"><img src="https://www.google.com/s2/favicons?domain=openai.com&sz=64" alt="Codex" style="width:38px;height:38px;border-radius:6px;object-fit:contain;display:block;"></span>
-          <span class="badge badge-freemium">💙 프리미엄</span>
-        </div>
-        <h3>Codex — OpenAI's coding agent</h3>
-        <p>OpenAI의 코딩 에이전트. 자연어 명령으로 코드를 자동 생성·수정하고, 복잡한 작업도 단계별로 처리합니다.</p>
-        <a href="https://marketplace.visualstudio.com/search?term=Codex+OpenAI&target=VSCode" target="_blank" class="vsc-link">Marketplace에서 설치 →</a>
       </div>
 
       <div class="vsc-card reveal">
@@ -1480,32 +1511,12 @@ SECTION 2 — 프로그램 설치 (다크)
 
       <div class="vsc-card reveal">
         <div class="vsc-card-top">
-          <span class="vsc-icon"><img src="https://GitHub.gallerycdn.vsassets.io/extensions/github/copilot-chat/0.44.2/1776677310207/Microsoft.VisualStudio.Services.Icons.Default" alt="GitHub Copilot Chat" style="width:38px;height:38px;border-radius:6px;object-fit:contain;display:block;"></span>
-          <span class="badge badge-freemium">💙 프리미엄</span>
-        </div>
-        <h3>GitHub Copilot Chat</h3>
-        <p>GitHub Copilot의 대화형 AI 코딩 어시스턴트. 코드 설명 요청, 버그 수정, 테스트 작성 등을 채팅으로 처리합니다.</p>
-        <a href="https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat" target="_blank" class="vsc-link">Marketplace에서 설치 →</a>
-      </div>
-
-      <div class="vsc-card reveal">
-        <div class="vsc-card-top">
           <span class="vsc-icon"><img src="https://GitHub.gallerycdn.vsassets.io/extensions/github/remotehub/0.65.2026031901/1773912802264/Microsoft.VisualStudio.Services.Icons.Default" alt="GitHub Repositories" style="width:38px;height:38px;border-radius:6px;object-fit:contain;display:block;"></span>
           <span class="badge badge-free">💚 무료</span>
         </div>
         <h3>GitHub Repositories</h3>
-        <p>로컬 클론 없이 GitHub 레포지터리를 VS Code에서 직접 열고 탐색·편집할 수 있습니다.</p>
+        <p>로컬 클론 없이 GitHub 레포지터리를 에디터에서 직접 열고 탐색·편집할 수 있습니다.</p>
         <a href="https://marketplace.visualstudio.com/items?itemName=GitHub.remotehub" target="_blank" class="vsc-link">Marketplace에서 설치 →</a>
-      </div>
-
-      <div class="vsc-card reveal">
-        <div class="vsc-card-top">
-          <span class="vsc-icon"><img src="https://MS-CEINTL.gallerycdn.vsassets.io/extensions/ms-ceintl/vscode-language-pack-ko/1.110.2026041514/1776262646526/Microsoft.VisualStudio.Services.Icons.Default" alt="Korean Language Pack" style="width:38px;height:38px;border-radius:6px;object-fit:contain;display:block;"></span>
-          <span class="badge badge-free">💚 무료</span>
-        </div>
-        <h3>Korean Language Pack for Visual Studio Code</h3>
-        <p>VS Code UI를 한국어로 전환합니다. 메뉴·버튼·설정 화면이 모두 한국어로 표시됩니다.</p>
-        <a href="https://marketplace.visualstudio.com/items?itemName=MS-CEINTL.vscode-language-pack-ko" target="_blank" class="vsc-link">Marketplace에서 설치 →</a>
       </div>
 
       <div class="vsc-card reveal">
@@ -1520,32 +1531,12 @@ SECTION 2 — 프로그램 설치 (다크)
 
       <div class="vsc-card reveal">
         <div class="vsc-card-top">
-          <span class="vsc-icon"><img src="https://ms-vscode.gallerycdn.vsassets.io/extensions/ms-vscode/powershell/2026.1.0/1775691053083/Microsoft.VisualStudio.Services.Icons.Default" alt="PowerShell" style="width:38px;height:38px;border-radius:6px;object-fit:contain;display:block;"></span>
-          <span class="badge badge-free">💚 무료</span>
-        </div>
-        <h3>PowerShell</h3>
-        <p>VS Code에서 PowerShell 스크립트를 작성·실행·디버깅. Windows 자동화 작업에 유용합니다.</p>
-        <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell" target="_blank" class="vsc-link">Marketplace에서 설치 →</a>
-      </div>
-
-      <div class="vsc-card reveal">
-        <div class="vsc-card-top">
           <span class="vsc-icon"><img src="https://mechatroner.gallerycdn.vsassets.io/extensions/mechatroner/rainbow-csv/3.24.1/1768618250211/Microsoft.VisualStudio.Services.Icons.Default" alt="Rainbow CSV" style="width:38px;height:38px;border-radius:6px;object-fit:contain;display:block;"></span>
           <span class="badge badge-free">💚 무료</span>
         </div>
         <h3>Rainbow CSV</h3>
-        <p>CSV 파일의 각 열을 색상별로 구분해 표시. 데이터 파일을 VS Code에서 편하게 확인할 수 있습니다.</p>
+        <p>CSV 파일의 각 열을 색상별로 구분해 표시. 데이터 파일을 에디터에서 편하게 확인할 수 있습니다.</p>
         <a href="https://marketplace.visualstudio.com/items?itemName=mechatroner.rainbow-csv" target="_blank" class="vsc-link">Marketplace에서 설치 →</a>
-      </div>
-
-      <div class="vsc-card reveal">
-        <div class="vsc-card-top">
-          <span class="vsc-icon"><img src="https://ms-vscode.gallerycdn.vsassets.io/extensions/ms-vscode/remote-repositories/0.43.2026031901/1773912692692/Microsoft.VisualStudio.Services.Icons.Default" alt="Remote Repositories" style="width:38px;height:38px;border-radius:6px;object-fit:contain;display:block;"></span>
-          <span class="badge badge-free">💚 무료</span>
-        </div>
-        <h3>Remote Repositories</h3>
-        <p>GitHub·Azure Repos 레포지터리를 원격으로 직접 열어 편집. 로컬 저장소 없이 빠르게 코드를 확인하고 수정합니다.</p>
-        <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.remote-repositories" target="_blank" class="vsc-link">Marketplace에서 설치 →</a>
       </div>
 
       <div class="vsc-card reveal">
@@ -1556,16 +1547,6 @@ SECTION 2 — 프로그램 설치 (다크)
         <h3>vscode-icons</h3>
         <p>파일·폴더에 종류에 맞는 아이콘을 자동 적용. 탐색기 가독성이 크게 향상됩니다.</p>
         <a href="https://marketplace.visualstudio.com/items?itemName=vscode-icons-team.vscode-icons" target="_blank" class="vsc-link">Marketplace에서 설치 →</a>
-      </div>
-
-      <div class="vsc-card reveal">
-        <div class="vsc-card-top">
-          <span class="vsc-icon"><img src="https://ms-vscode-remote.gallerycdn.vsassets.io/extensions/ms-vscode-remote/remote-wsl/0.104.3/1759355620566/Microsoft.VisualStudio.Services.Icons.Default" alt="WSL" style="width:38px;height:38px;border-radius:6px;object-fit:contain;display:block;"></span>
-          <span class="badge badge-free">💚 무료</span>
-        </div>
-        <h3>WSL</h3>
-        <p>Windows에서 WSL(Linux 환경)의 파일·터미널을 VS Code로 직접 연결. Windows-Linux 통합 개발 환경을 구성합니다.</p>
-        <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl" target="_blank" class="vsc-link">Marketplace에서 설치 →</a>
       </div>
 
       <div class="vsc-card reveal">
@@ -1584,28 +1565,18 @@ SECTION 2 — 프로그램 설치 (다크)
           <span class="badge badge-free">💚 무료</span>
         </div>
         <h3>Python</h3>
-        <p>Python 실행·디버깅·Jupyter 노트북 지원을 VS Code에서 통합 제공하는 Microsoft 공식 확장입니다.</p>
+        <p>Python 실행·디버깅·Jupyter 노트북 지원을 통합 제공하는 Microsoft 공식 확장입니다.</p>
         <a href="https://marketplace.visualstudio.com/items?itemName=ms-python.python" target="_blank" class="vsc-link">Marketplace에서 설치 →</a>
       </div>
 
       <div class="vsc-card reveal">
         <div class="vsc-card-top">
-          <span class="vsc-icon"><img src="https://ms-python.gallerycdn.vsassets.io/extensions/ms-python/debugpy/2026.3.2026032701/1774608059355/Microsoft.VisualStudio.Services.Icons.Default" alt="Python Debugger" style="width:38px;height:38px;border-radius:6px;object-fit:contain;display:block;"></span>
+          <span class="vsc-icon"><img src="https://ms-vscode-remote.gallerycdn.vsassets.io/extensions/ms-vscode-remote/remote-wsl/0.104.3/1759355620566/Microsoft.VisualStudio.Services.Icons.Default" alt="WSL" style="width:38px;height:38px;border-radius:6px;object-fit:contain;display:block;"></span>
           <span class="badge badge-free">💚 무료</span>
         </div>
-        <h3>Python Debugger</h3>
-        <p>Python 코드에 중단점을 설정하고 단계별로 실행하며 변수 상태를 확인하는 강력한 디버거입니다.</p>
-        <a href="https://marketplace.visualstudio.com/items?itemName=ms-python.debugpy" target="_blank" class="vsc-link">Marketplace에서 설치 →</a>
-      </div>
-
-      <div class="vsc-card reveal">
-        <div class="vsc-card-top">
-          <span class="vsc-icon"><img src="https://raw.githubusercontent.com/microsoft/vscode-python-environments/main/icon.png" alt="Python Environments" style="width:38px;height:38px;border-radius:6px;object-fit:contain;display:block;"></span>
-          <span class="badge badge-free">💚 무료</span>
-        </div>
-        <h3>Python Environments</h3>
-        <p>가상환경(venv, conda 등)을 VS Code에서 직접 생성·전환·관리. 프로젝트별 패키지 환경을 깔끔하게 분리할 수 있습니다.</p>
-        <a href="https://marketplace.visualstudio.com/items?itemName=ms-python.python-environment-manager" target="_blank" class="vsc-link">Marketplace에서 설치 →</a>
+        <h3>WSL</h3>
+        <p>Windows에서 WSL(Linux 환경)의 파일·터미널을 에디터로 직접 연결. Windows-Linux 통합 개발 환경을 구성합니다.</p>
+        <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl" target="_blank" class="vsc-link">Marketplace에서 설치 →</a>
       </div>
 
     </div>
@@ -1627,7 +1598,7 @@ SECTION 2 — 프로그램 설치 (다크)
       <span class="rc-divider">→</span>
       <div class="rc-step"><span class="rc-step-num">03</span> Chrome 확장</div>
       <span class="rc-divider">→</span>
-      <div class="rc-step"><span class="rc-step-num">04</span> VS Code 확장</div>
+      <div class="rc-step"><span class="rc-step-num">04</span> Antigravity 확장</div>
     </div>
     <a href="#guide" class="rc-cta reveal">AI 도구 사용법 배우러 가기 →</a>
   </div>
@@ -1648,7 +1619,7 @@ SECTION 2 — 프로그램 설치 (다크)
         <img src="https://www.google.com/s2/favicons?domain=claude.ai&sz=32" alt="Claude" style="width:18px;height:18px;"> Claude Desktop
       </button>
       <button class="guide-tab-btn" data-guide-tab="vscode">
-        <img src="https://www.google.com/s2/favicons?domain=code.visualstudio.com&sz=32" alt="VS Code" style="width:18px;height:18px;"> VS Code
+        <img src="https://www.google.com/s2/favicons?domain=antigravity.google&sz=32" alt="Antigravity" style="width:18px;height:18px;"> Antigravity
       </button>
       <button class="guide-tab-btn" data-guide-tab="notebooklm">
         <img src="icons/notebooklm-logo.svg" alt="NotebookLM" style="width:18px;height:18px;"> NotebookLM
@@ -1673,6 +1644,10 @@ SECTION 2 — 프로그램 설치 (다크)
               <li>로그인 후 좌측 상단에 <strong>Chat / Cowork / Code</strong> 세 가지 모드가 보입니다</li>
             </ul>
             <div class="guide-tip">💡 한번 로그인하면 앱을 껐다 켜도 자동 로그인됩니다. 매번 로그인할 필요 없어요!</div>
+          </div>
+          <div class="guide-img-wrap">
+            <img src="https://www.testingdocs.com/wp-content/uploads/Claude-Desktop-Windows.png" alt="Claude Desktop 로그인 화면">
+            <div class="guide-img-caption">Claude Desktop — Windows 로그인 화면 (Google 계정 또는 이메일 로그인)</div>
           </div>
         </div>
       </div>
@@ -1715,8 +1690,8 @@ SECTION 2 — 프로그램 설치 (다크)
             <div class="guide-tip">💡 <strong>역할 지정 팁:</strong> "너는 10년 경력의 해운 물류 전문가야." 처럼 역할을 먼저 지정하면 훨씬 전문적인 답변이 나와요!</div>
           </div>
           <div class="guide-img-wrap">
-            <img src="screenshots/claude-chat.png" alt="Claude Chat 화면">
-            <div class="guide-img-caption">Claude Desktop Chat — 사이드바 및 대화 화면</div>
+            <img src="https://static.filehorse.com/screenshots/office-and-business-tools/claude-ai-screenshot-04.png" alt="Claude Chat PDF 분석 화면">
+            <div class="guide-img-caption">Claude Desktop Chat — PDF 첨부 후 AI 분석 화면</div>
           </div>
         </div>
       </div>
@@ -1739,7 +1714,7 @@ SECTION 2 — 프로그램 설치 (다크)
             <div class="guide-section-label">🖱 사용 방법</div>
             <div class="guide-how-box">
               <ol>
-                <li><strong>작업 폴더 설정 (필수 첫 단계):</strong> 화면 하단 <code>폴더 선택...</code> 버튼 클릭 → Claude가 접근할 로컬 폴더를 지정합니다. 이 폴더 안의 파일만 Claude가 읽고 수정할 수 있어요. <strong>처음엔 테스트용 빈 폴더를 새로 만들어 지정하는 것을 권장합니다.</strong> 실수로 중요한 파일이 변경되는 것을 방지할 수 있습니다.</li>
+                <li><strong>작업 폴더 설정 (필수 첫 단계):</strong> 입력 창 하단 <code>프로젝트에서 작업 → 폴더 선택...</code> 또는 <code>폴더 선택...</code> 버튼 클릭 → Claude가 접근할 로컬 폴더를 지정합니다. 이 폴더 안의 파일만 Claude가 읽고 수정할 수 있어요. <strong>처음엔 테스트용 빈 폴더를 새로 만들어 지정하는 것을 권장합니다.</strong> 실수로 중요한 파일이 변경되는 것을 방지할 수 있습니다.</li>
                 <li><strong>작업 지시:</strong> 하단 입력창에 원하는 작업을 구체적으로 입력합니다. "Downloads 폴더를 날짜별로 정리해줘" 처럼 명확하게 지시할수록 결과가 좋아요.</li>
                 <li><strong>계획 확인 및 승인:</strong> Claude가 작업 계획을 먼저 보여줍니다. 내용을 검토한 뒤 <code>승인</code> 버튼을 눌러야 실제 작업이 시작됩니다. 마음에 들지 않으면 수정 요청도 가능해요.</li>
                 <li><strong>실시간 진행 확인:</strong> 작업이 진행되는 동안 각 단계를 실시간으로 볼 수 있습니다. 중간에 멈추고 싶으면 언제든 <code>중단</code> 버튼 클릭.</li>
@@ -1759,8 +1734,8 @@ SECTION 2 — 프로그램 설치 (다크)
             <div class="guide-tip">💡 <strong>주의:</strong> Cowork는 실제 파일을 수정합니다. 처음엔 테스트 폴더에서 먼저 시도해보세요. 매 단계마다 Claude가 승인을 요청하니 안심하고 사용할 수 있어요.</div>
           </div>
           <div class="guide-img-wrap">
-            <img src="screenshots/claude-cowork.png" alt="Claude Cowork 화면">
-            <div class="guide-img-caption">Claude Desktop Cowork — 작업 지시 및 자동화 화면</div>
+            <img src="https://static.simonwillison.net/static/2026/claude-cowork.jpg" alt="Claude Desktop Cowork 화면">
+            <div class="guide-img-caption">Claude Desktop Cowork — 실제 작업 진행 화면 (Progress/Artifacts 패널)</div>
           </div>
         </div>
       </div>
@@ -1775,7 +1750,7 @@ SECTION 2 — 프로그램 설치 (다크)
             <div class="guide-feature-box">
               <ul>
                 <li>💻 <strong>터미널 연동:</strong> 코드를 작성하고 바로 실행해서 결과 확인</li>
-                <li>🔧 <strong>VS Code 연동:</strong> 편집 중인 파일을 Claude가 직접 수정</li>
+                <li>🔧 <strong>Antigravity 연동:</strong> 편집 중인 파일을 Claude가 직접 수정</li>
                 <li>🐛 <strong>자동 디버깅:</strong> 오류가 나면 스스로 원인을 분석하고 수정</li>
                 <li>📦 <strong>프로젝트 이해:</strong> 전체 폴더 구조를 파악해서 일관성 있게 작업</li>
               </ul>
@@ -1787,7 +1762,7 @@ SECTION 2 — 프로그램 설치 (다크)
                 <li><strong>작업 지시:</strong> 하단 입력창에 만들고 싶은 것을 자연어로 설명합니다. 코딩 지식이 없어도 돼요. "엑셀 파일을 읽어서 월별 합계를 그래프로 그려줘" 처럼 결과 위주로 설명하면 됩니다.</li>
                 <li><strong>진행 과정 확인:</strong> Claude가 어떤 파일을 만들고 어떤 명령을 실행하는지 단계별로 보여줍니다. 각 단계마다 승인 여부를 물어보니 원치 않으면 멈출 수 있어요.</li>
                 <li><strong>오류 발생 시:</strong> 코드 실행 중 오류가 나면 Claude가 자동으로 원인을 분석하고 수정합니다. 별도로 오류를 붙여넣거나 설명하지 않아도 됩니다.</li>
-                <li><strong>VS Code 연동:</strong> VS Code에서 해당 폴더를 열면 Claude가 수정한 파일을 바로 확인하고 편집할 수 있습니다. Claude Code for VS Code 확장을 설치하면 VS Code 안에서도 직접 지시가 가능해요.</li>
+                <li><strong>Antigravity 연동:</strong> Antigravity에서 해당 폴더를 열면 Claude가 수정한 파일을 바로 확인하고 편집할 수 있습니다. Claude Code 확장을 설치하면 Antigravity 안에서도 직접 지시가 가능해요.</li>
                 <li><strong>결과 확인:</strong> 완성된 코드는 지정 폴더에 저장됩니다. 웹 페이지라면 Live Server로, Python이라면 터미널에서 바로 실행해 결과를 확인하세요.</li>
               </ol>
             </div>
@@ -1803,33 +1778,33 @@ SECTION 2 — 프로그램 설치 (다크)
             <div class="guide-tip">💡 <strong>초보자 팁:</strong> "파이썬을 모르는 비개발자인데, 이런 기능이 필요해." 처럼 본인 수준을 먼저 알려주면 Claude가 설명도 같이 해줍니다!</div>
           </div>
           <div class="guide-img-wrap">
-            <img src="screenshots/claude-code.png" alt="Claude Code 화면">
-            <div class="guide-img-caption">Claude Desktop Code — AI 코딩 에이전트 화면</div>
+            <img src="https://cdn.analyticsvidhya.com/wp-content/uploads/2025/07/Claude-Code-interface.webp" alt="Claude Code 터미널 화면">
+            <div class="guide-img-caption">Claude Code — 터미널 기반 AI 코딩 인터페이스</div>
           </div>
         </div>
       </div>
 
     </div><!-- /claude panel -->
 
-    <!-- ── VS Code ── -->
+    <!-- ── Google Antigravity ── -->
     <div class="guide-panel" data-guide-panel="vscode">
 
       <div class="guide-step-group">
-        <div class="guide-step-title"><span class="guide-step-badge">1</span> VS Code 설치 및 한국어 설정</div>
+        <div class="guide-step-title"><span class="guide-step-badge">1</span> Google Antigravity 설치 및 시작</div>
         <div class="guide-step-content">
           <div class="guide-step-desc">
-            <p><strong>code.visualstudio.com</strong>에 접속해서 다운로드 버튼을 클릭하세요. 자동으로 내 OS에 맞는 버전을 추천해 줍니다.</p>
+            <p>Google 계정으로 바로 시작할 수 있는 VS Code 기반 코드 에디터입니다. <strong>Gemini AI가 기본 내장</strong>되어 있어 별도 설정 없이 바로 AI 코딩이 가능해요.</p>
             <ul>
-              <li>설치 후 첫 실행 시 영어 UI로 나타납니다</li>
-              <li><code class="guide-cmd">Ctrl+Shift+X</code> 눌러 Extensions 패널 열기</li>
-              <li><strong>Korean Language Pack</strong> 검색 후 Install 클릭</li>
-              <li>재시작 후 한국어 UI로 변경됩니다</li>
+              <li>설치 후 <strong>Google 계정으로 로그인</strong>하면 설정 완료</li>
+              <li>VS Code와 거의 동일한 UI — 기존 VS Code 사용자라면 바로 적응 가능</li>
+              <li><code class="guide-cmd">Ctrl+Shift+X</code> 눌러 Extensions 패널 열기 → VS Code Marketplace 확장 그대로 사용 가능</li>
+              <li><strong>Korean Language Pack</strong> 설치 시 한국어 UI로 전환</li>
             </ul>
-            <div class="guide-tip">💡 재시작 팝업이 뜨면 "Restart" 버튼을 클릭하세요.</div>
+            <div class="guide-tip">💡 Gemini Code Assist가 기본 탑재되어 있어 설치하자마자 AI 코딩을 시작할 수 있어요!</div>
           </div>
           <div class="guide-img-wrap">
-            <img src="https://code.visualstudio.com/assets/docs/getstarted/userinterface/hero.png" alt="VS Code UI">
-            <div class="guide-img-caption">VS Code 기본 화면 구성</div>
+            <img src="https://www.google.com/s2/favicons?domain=antigravity.google&sz=128" alt="Google Antigravity" style="width:80px;height:80px;margin:40px auto;display:block;opacity:.5;">
+            <div class="guide-img-caption">Google Antigravity — VS Code 기반 AI 코드 에디터</div>
           </div>
         </div>
       </div>
@@ -1838,7 +1813,7 @@ SECTION 2 — 프로그램 설치 (다크)
         <div class="guide-step-title"><span class="guide-step-badge">2</span> 폴더 열기 및 기본 탐색</div>
         <div class="guide-step-content">
           <div class="guide-step-desc">
-            <p>VS Code는 단일 파일보다 <strong>폴더(프로젝트) 단위</strong>로 여는 것이 기본입니다.</p>
+            <p>Antigravity도 VS Code와 동일하게 <strong>폴더(프로젝트) 단위</strong>로 여는 것이 기본입니다.</p>
             <ul>
               <li><strong>파일 → 폴더 열기</strong> 메뉴 또는 <code class="guide-cmd">Ctrl+K, Ctrl+O</code></li>
               <li>왼쪽 탐색기에서 파일 구조 확인</li>
@@ -1848,27 +1823,28 @@ SECTION 2 — 프로그램 설치 (다크)
             <div class="guide-tip">💡 여러 파일을 탭으로 열어 동시에 볼 수 있어요. 탭을 드래그해서 분할 화면도 가능!</div>
           </div>
           <div class="guide-img-wrap">
-            <img src="https://code.visualstudio.com/assets/images/product-screenshot.png" alt="VS Code 제품 스크린샷">
-            <div class="guide-img-caption">VS Code 폴더 열기 및 편집 화면</div>
+            <img src="https://www.google.com/s2/favicons?domain=antigravity.google&sz=128" alt="Antigravity 화면 구성" style="width:80px;height:80px;margin:40px auto;display:block;opacity:.5;">
+            <div class="guide-img-caption">Antigravity 폴더 열기 및 편집 화면</div>
           </div>
         </div>
       </div>
 
       <div class="guide-step-group">
-        <div class="guide-step-title"><span class="guide-step-badge">3</span> GitHub Copilot Chat으로 AI 코딩</div>
+        <div class="guide-step-title"><span class="guide-step-badge">3</span> Gemini Code Assist로 AI 코딩</div>
         <div class="guide-step-content">
           <div class="guide-step-desc">
-            <p>Extensions에서 <strong>GitHub Copilot Chat</strong>을 설치하면 VS Code 안에서 바로 AI와 대화하며 코딩할 수 있어요.</p>
+            <p>Antigravity에는 <strong>Gemini Code Assist</strong>가 내장되어 있어 별도 설치 없이 바로 AI와 대화하며 코딩할 수 있어요.</p>
             <ul>
-              <li>설치 후 왼쪽 사이드바 채팅 아이콘 클릭</li>
+              <li>왼쪽 사이드바 Gemini 아이콘 클릭하면 채팅 패널 열림</li>
               <li><strong>"이 코드 설명해줘"</strong>, <strong>"버그 고쳐줘"</strong> 등 자연어로 요청</li>
-              <li>코드 선택 후 우클릭 → <strong>Copilot</strong> 메뉴 활용</li>
-              <li><code class="guide-cmd">Ctrl+I</code>: 인라인 AI 코드 생성</li>
+              <li>코드 선택 후 <code class="guide-cmd">Ctrl+I</code>: 인라인 AI 코드 생성</li>
+              <li>Google 계정으로 로그인하면 월 무료 사용량 제공</li>
             </ul>
-            <div class="guide-tip">💡 GitHub 계정이 있으면 무료로 월 2,000회 자동완성, 50회 채팅이 제공됩니다.</div>
+            <div class="guide-tip">💡 Claude Code 확장을 추가로 설치하면 Gemini와 Claude를 에디터 안에서 함께 활용할 수 있어요!</div>
           </div>
-          <div class="guide-img-wrap" style="display:flex;align-items:center;justify-content:center;min-height:160px;background:rgba(255,255,255,.04);">
-            <p style="color:rgba(255,255,255,.3);font-size:13px;text-align:center;padding:20px;">📸 Copilot Chat 화면 스크린샷<br><span style="font-size:11px;">추후 직접 캡처 이미지로 교체 예정</span></p>
+          <div class="guide-img-wrap">
+            <img src="https://www.google.com/s2/favicons?domain=gemini.google.com&sz=128" alt="Gemini Code Assist" style="width:80px;height:80px;margin:40px auto;display:block;opacity:.5;">
+            <div class="guide-img-caption">Gemini Code Assist — Antigravity 내 AI 채팅 패널</div>
           </div>
         </div>
       </div>
@@ -1886,13 +1862,14 @@ SECTION 2 — 프로그램 설치 (다크)
             </ul>
             <div class="guide-tip">💡 이 AI 스타터팩 HTML 파일도 Live Server로 열어서 수정하면 바로 결과를 확인할 수 있어요!</div>
           </div>
-          <div class="guide-img-wrap" style="display:flex;align-items:center;justify-content:center;min-height:160px;background:rgba(255,255,255,.04);">
-            <p style="color:rgba(255,255,255,.3);font-size:13px;text-align:center;padding:20px;">📸 Live Server 실행 화면 스크린샷<br><span style="font-size:11px;">추후 직접 캡처 이미지로 교체 예정</span></p>
+          <div class="guide-img-wrap">
+            <img src="https://raw.githubusercontent.com/ritwickdey/vscode-live-server/e9c29e4a64717a29165e6f11d1cb14602ddb678e/images/Screenshot/vscode-live-server-animated-demo.gif" alt="Live Server — 저장 즉시 브라우저 자동 새로고침 데모">
+            <div class="guide-img-caption">Live Server — 저장 즉시 브라우저 자동 새로고침 데모</div>
           </div>
         </div>
       </div>
 
-    </div><!-- /vscode panel -->
+    </div><!-- /antigravity panel -->
 
     <!-- ── NotebookLM ── -->
     <div class="guide-panel" data-guide-panel="notebooklm">
@@ -1929,8 +1906,9 @@ SECTION 2 — 프로그램 설치 (다크)
             </ul>
             <div class="guide-tip">💡 소스는 최대 50개까지 추가 가능. 여러 자료를 모아서 한 번에 분석해보세요!</div>
           </div>
-          <div class="guide-img-wrap" style="display:flex;align-items:center;justify-content:center;min-height:160px;background:rgba(255,255,255,.04);">
-            <p style="color:rgba(255,255,255,.3);font-size:13px;text-align:center;padding:20px;">📸 소스 추가 화면 스크린샷<br><span style="font-size:11px;">추후 직접 캡처 이미지로 교체 예정</span></p>
+          <div class="guide-img-wrap">
+            <img src="https://lh3.googleusercontent.com/ZZ4kz9bFt9Yd5alVlNjAcqqkq0zaR1OBGnZ5Gjp1TJ_fiBjwcIwFc2onl2gLhse5TMlXiLQmDi8xGvto3rDdHwyrwYS_FdfKgqnQ=e365-pa-nu-rw-w608" alt="NotebookLM — 다양한 소스 파일 업로드 화면">
+            <div class="guide-img-caption">NotebookLM — 다양한 소스 파일 업로드 화면</div>
           </div>
         </div>
       </div>
@@ -1948,8 +1926,9 @@ SECTION 2 — 프로그램 설치 (다크)
             </ul>
             <div class="guide-tip">💡 NotebookLM은 추가된 소스 내에서만 답변합니다. 환각(hallucination) 걱정이 훨씬 줄어들어요!</div>
           </div>
-          <div class="guide-img-wrap" style="display:flex;align-items:center;justify-content:center;min-height:160px;background:rgba(255,255,255,.04);">
-            <p style="color:rgba(255,255,255,.3);font-size:13px;text-align:center;padding:20px;">📸 질문 및 답변 화면 스크린샷<br><span style="font-size:11px;">추후 직접 캡처 이미지로 교체 예정</span></p>
+          <div class="guide-img-wrap">
+            <img src="https://lh3.googleusercontent.com/IGa8pIBim-S3kfSG5GTvTeALXHdqJ9pAFzN2oQ_XexrjmzHt0XIOzyce5NZCKcfoQz-dJdVgZSMeDxwimaP5dSlls5h_5krg0t8u=e365-pa-nu-rw-w608" alt="NotebookLM — 소스 기반 질문 및 답변 화면">
+            <div class="guide-img-caption">NotebookLM — 소스 기반 질문 및 답변 화면</div>
           </div>
         </div>
       </div>
@@ -1967,8 +1946,9 @@ SECTION 2 — 프로그램 설치 (다크)
             </ul>
             <div class="guide-tip">💡 영어 오디오로 생성되지만 번역 요약 소스를 추가하면 내용 파악에 유용합니다.</div>
           </div>
-          <div class="guide-img-wrap" style="display:flex;align-items:center;justify-content:center;min-height:160px;background:rgba(255,255,255,.04);">
-            <p style="color:rgba(255,255,255,.3);font-size:13px;text-align:center;padding:20px;">📸 오디오 개요 생성 화면 스크린샷<br><span style="font-size:11px;">추후 직접 캡처 이미지로 교체 예정</span></p>
+          <div class="guide-img-wrap">
+            <img src="https://lh3.googleusercontent.com/N9zdE00oL2AIRzOjv9jVgiXhrsF4A3xQImJLWM2rqKy4HIlA6RZswFOui2N9HzAmVMcFlE-DltF1qZA4pWqw90QHyJjLH2BK458=e365-pa-nu-rw-w608" alt="NotebookLM — 오디오 개요(팟캐스트) 생성 화면">
+            <div class="guide-img-caption">NotebookLM — 오디오 개요(팟캐스트) 생성 화면</div>
           </div>
         </div>
       </div>
@@ -1992,8 +1972,8 @@ SECTION 2 — 프로그램 설치 (다크)
             <div class="guide-tip">💡 무료 플랜도 Gemini 1.5 Flash를 사용하며 일반 업무에 충분합니다.</div>
           </div>
           <div class="guide-img-wrap">
-            <img src="https://www.gstatic.com/lamda/images/gemini_aurora_thumbnail_4g_e74822ff0ca4259beb718.png" alt="Gemini">
-            <div class="guide-img-caption">Gemini 공식 소개</div>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/9/9b/Google_Gemini_Screenshot_%282026%29.png" alt="Gemini 메인 화면">
+            <div class="guide-img-caption">Gemini — 실제 메인 화면 (좌측에 Gems·Notebooks 사이드바 포함)</div>
           </div>
         </div>
       </div>
@@ -2011,8 +1991,9 @@ SECTION 2 — 프로그램 설치 (다크)
             </ul>
             <div class="guide-tip">💡 회사 Google Workspace 계정이 있다면 사내 Gmail·Drive도 연동 가능합니다!</div>
           </div>
-          <div class="guide-img-wrap" style="display:flex;align-items:center;justify-content:center;min-height:160px;background:rgba(255,255,255,.04);">
-            <p style="color:rgba(255,255,255,.3);font-size:13px;text-align:center;padding:20px;">📸 Google 워크스페이스 연동 화면 스크린샷<br><span style="font-size:11px;">추후 직접 캡처 이미지로 교체 예정</span></p>
+          <div class="guide-img-wrap">
+            <img src="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/finance_marketing_landscape.width-600.format-webp.webp" alt="Gemini 워크스페이스 통합 화면">
+            <div class="guide-img-caption">Gemini — Google 서비스와 통합된 AI 리서치 화면</div>
           </div>
         </div>
       </div>
@@ -2031,8 +2012,8 @@ SECTION 2 — 프로그램 설치 (다크)
             <div class="guide-tip">💡 Gemini는 멀티모달 AI! 텍스트·이미지·오디오를 동시에 처리할 수 있습니다.</div>
           </div>
           <div class="guide-img-wrap">
-            <img src="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Gemini_SS_1.width-1300.jpg" alt="Gemini 스크린샷">
-            <div class="guide-img-caption">Gemini 사용 화면</div>
+            <img src="https://www.gstatic.com/lamda/images/app_upsell/carousel_panel_6_31943dccf4ec068d3c743.png" alt="Gemini 이미지 분석 화면">
+            <div class="guide-img-caption">Gemini — 이미지 첨부 후 AI 분석 화면 (멀티모달)</div>
           </div>
         </div>
       </div>
@@ -2050,8 +2031,41 @@ SECTION 2 — 프로그램 설치 (다크)
             </ul>
             <div class="guide-tip">💡 Gems는 ChatGPT의 GPTs와 유사한 기능입니다. 반복 업무를 자동화하는 데 매우 효과적이에요.</div>
           </div>
-          <div class="guide-img-wrap" style="display:flex;align-items:center;justify-content:center;min-height:160px;background:rgba(255,255,255,.04);">
-            <p style="color:rgba(255,255,255,.3);font-size:13px;text-align:center;padding:20px;">📸 Gems 생성 화면 스크린샷<br><span style="font-size:11px;">추후 직접 캡처 이미지로 교체 예정</span></p>
+          <div class="guide-img-wrap">
+            <img src="screenshots/gemini-gems-list.png" alt="Gemini Gem Manager 화면">
+              <div class="guide-img-caption">Gemini Gem Manager — Premade by Google Gems 목록 화면</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="guide-step-group">
+        <div class="guide-step-title"><span class="guide-step-badge">5</span> Gem 직접 만들기</div>
+        <div class="guide-step-content">
+          <div class="guide-step-desc">
+            <p>나만의 Gem을 처음부터 만들어봐요. 이름과 지시사항만 입력하면 됩니다.</p>
+            <div class="guide-section-label">🖱 사용 방법</div>
+            <div class="guide-how-box">
+              <ol>
+                <li><strong>Gem 만들기 시작:</strong> Gem manager 우측 상단 <code>+ New Gem</code> 버튼 클릭</li>
+                <li><strong>이름 입력:</strong> 용도를 잘 나타내는 이름 입력 (예: 해운 물류 분석 전문가, 이메일 작성 도우미)</li>
+                <li><strong>지시사항 입력:</strong> AI가 어떤 역할을 할지, 어떤 말투를 쓸지, 무엇을 주의할지 자연어로 작성</li>
+                <li><strong>미리보기 확인:</strong> 오른쪽 Preview 패널에서 바로 테스트해보고 지시사항을 다듬기</li>
+                <li><strong>저장:</strong> 상단 <code>Save</code> 클릭. 이후 왼쪽 사이드바 Gems 목록에서 언제든 불러올 수 있음</li>
+              </ol>
+            </div>
+            <div class="guide-section-label">💡 이렇게 활용하세요</div>
+            <div class="guide-use-box">
+              <ul>
+                <li>📦 <em>"해운 화물 운임 분석 전문가로서 답변해줘"를 매번 입력하는 대신 전용 Gem 생성</em></li>
+                <li>✉️ <em>이메일 초안 작성 Gem — 항상 같은 말투, 같은 형식으로 작성</em></li>
+                <li>📝 <em>회의록 요약 Gem — 회사 보고서 형식에 맞게 요약</em></li>
+              </ul>
+            </div>
+            <div class="guide-tip">💡 지시사항이 구체적일수록 Gem이 더 정확하게 동작해요. "~처럼 답해줘" 보다 "~을 포함해서, ~하지 말고, ~형식으로 답해줘"처럼 작성하세요.</div>
+          </div>
+          <div class="guide-img-wrap">
+            <img src="screenshots/gemini-gems-create-popsci.png" alt="Gemini Gem 만들기 화면">
+            <div class="guide-img-caption">Gemini Gems 만들기 — 이름·지시사항 입력 및 미리보기 화면</div>
           </div>
         </div>
       </div>
@@ -2240,7 +2254,7 @@ SECTION 2 — 프로그램 설치 (다크)
           </div>
         </div>
         <h3>GitHub Copilot</h3>
-        <p>GitHub + OpenAI가 만든 코딩 보조 AI. VS Code에 플러그인으로 설치해서 사용하며, 코드 자동완성과 채팅 기능을 제공합니다.</p>
+        <p>GitHub + OpenAI가 만든 코딩 보조 AI. Antigravity 등 VS Code 기반 에디터에 플러그인으로 설치해서 사용하며, 코드 자동완성과 채팅 기능을 제공합니다.</p>
         <a href="https://github.com/features/copilot" target="_blank" class="tool-link">알아보기 →</a>
       </div>
       <div class="tool-card reveal">
@@ -3019,7 +3033,7 @@ SECTION 2 — 프로그램 설치 (다크)
           <a href="#ready">준비 단계</a>
           <a href="#install">프로그램 설치</a>
           <a href="#extensions">Chrome 확장</a>
-          <a href="#vscode-ext">VS Code 확장</a>
+          <a href="#vscode-ext">Antigravity 확장</a>
           <a href="#guide">AI 도구 사용법</a>
           <a href="#tools">AI 도구 소개</a>
           <a href="#glossary">용어 사전</a>

@@ -99,14 +99,26 @@
       top: 50%; left: 50%; transform: translate(-50%, -50%);
       pointer-events: none;
     }
-    .hero-badge {
-      display: inline-block;
-      background: rgba(255,255,255,.55);
-      border: 1px solid rgba(201,75,123,.2);
-      color: var(--blossom-text);
-      font-size: 12px; font-weight: 600; letter-spacing: 1px;
-      padding: 6px 16px; border-radius: 980px;
-      margin-bottom: 28px; text-transform: uppercase;
+    .hero-brand {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: rgba(255,255,255,.65);
+      border: 1.5px solid rgba(201,75,123,.28);
+      border-radius: 980px; padding: 9px 22px;
+      margin-bottom: 32px;
+      box-shadow: 0 2px 14px rgba(201,75,123,.12);
+      position: relative; z-index: 1;
+    }
+    .hero-brand-name {
+      font-size: 14px; font-weight: 800; letter-spacing: 2.5px;
+      text-transform: uppercase; color: var(--blossom-text);
+    }
+    .hero-brand-divider {
+      width: 1px; height: 13px;
+      background: rgba(201,75,123,.35); border-radius: 1px;
+    }
+    .hero-brand-sub {
+      font-size: 11px; font-weight: 700; letter-spacing: 2.5px;
+      text-transform: uppercase; color: var(--blossom-deeper);
     }
     #hero h1 {
       font-size: clamp(52px, 8vw, 96px);
@@ -898,7 +910,7 @@
 
     /* 히어로 카드 */
     .hero-card-icon [data-lucide] {
-      color: rgba(255,255,255,0.85);
+      color: var(--blossom-deeper);
       width: 30px; height: 30px;
     }
     .hero-card-icon { font-size: 0; margin-bottom: 10px; }
@@ -936,7 +948,7 @@
     .ext-howto-title [data-lucide] { color: var(--gray-6); width:18px; height:18px; }
 
     /* 용어사전 */
-    .gloss-emoji [data-lucide] { color: rgba(255,255,255,0.7); width:20px; height:20px; }
+    .gloss-emoji [data-lucide] { color: var(--blossom-deeper); width:20px; height:20px; }
     .gloss-emoji { font-size: 0; }
 
   </style>
@@ -969,7 +981,11 @@
 ============================================================ -->
 <section id="hero">
   <div class="hero-glow"></div>
-  <div class="hero-badge">Sinokor AI Guide</div>
+  <div class="hero-brand">
+    <span class="hero-brand-name">SINOKOR</span>
+    <span class="hero-brand-divider"></span>
+    <span class="hero-brand-sub">AI&nbsp;GUIDE</span>
+  </div>
   <h1>AI <span>스타터팩</span></h1>
   <p class="hero-sub">처음 만나는 AI 도구도 걱정 없어요.<br>계정 만들기부터 실무 활용까지, 한 곳에서.</p>
   <div class="hero-btns">

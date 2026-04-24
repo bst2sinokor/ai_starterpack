@@ -181,10 +181,16 @@ html, body {
 
 /* ── 컷 3 ── */
 .cut3 { animation: fadeUp .9s cubic-bezier(.16,1,.3,1) 9.8s forwards, fadeOut .6s ease 14.0s forwards; }
-.cut3 .sub { font-size:clamp(13px,1.8vw,17px); font-weight:400; color:var(--text-muted); letter-spacing:.14em; margin-bottom:20px; text-transform:uppercase; opacity:0; animation:fadeIn .7s ease 10.4s forwards; }
-.cut3 .main { font-family:'Noto Serif KR',serif; font-size:clamp(28px,5.2vw,62px); font-weight:400; color:var(--text-dark); letter-spacing:-.02em; line-height:1.4; opacity:0; animation:fadeIn .8s ease 11.0s forwards; }
-.cut3 .sub-line { font-size:.62em; display:block; color:var(--text-muted); font-weight:300; margin-bottom:10px; letter-spacing:.04em; }
-.cut3 .brand-name { font-weight:700; color:var(--blossom-deeper); -webkit-text-fill-color:var(--blossom-deeper); }
+.cut3 .sub { font-family:'Noto Serif KR',serif; font-size:clamp(13px,1.8vw,16px); font-weight:300; font-style:italic; color:var(--text-muted); letter-spacing:.18em; margin-bottom:28px; opacity:0; animation:fadeIn .7s ease 10.4s forwards; }
+.cut3 .main { font-family:'Noto Serif KR',serif; font-size:clamp(30px,5.4vw,64px); font-weight:400; color:var(--text-dark); letter-spacing:.02em; line-height:1.55; opacity:0; animation:fadeIn .8s ease 11.0s forwards; }
+.cut3 .sub-line { font-size:.56em; display:block; color:var(--text-muted); font-weight:300; margin-bottom:14px; letter-spacing:.1em; }
+.cut3 .big-ko {
+  display:block;
+  font-family:'Noto Serif KR',serif;
+  font-size:clamp(48px,8.5vw,100px); font-weight:700; letter-spacing:-.04em;
+  background:linear-gradient(135deg,var(--blossom-text) 0%,var(--blossom-deeper) 50%,var(--blossom-deep) 100%);
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+}
 
 /* ── 컷 4 ── */
 .cut4 { animation: fadeUp .9s cubic-bezier(.16,1,.3,1) 14.8s forwards, fadeOut .6s ease 19.0s forwards; }
@@ -218,10 +224,10 @@ html, body {
 .cut5 .tagline strong { color:var(--text-dark); font-weight:600; }
 
 /* 하단 */
-.bottom-hint { position:absolute; bottom:28px; left:50%; transform:translateX(-50%); display:flex; align-items:center; gap:10px; opacity:0; animation:fadeIn .8s ease 22.8s forwards; }
-.scroll-txt { font-size:11px; letter-spacing:.28em; color:var(--text-muted); text-transform:uppercase; }
-.scroll-arrow { width:22px; height:22px; border:1.5px solid rgba(92,27,58,.3); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:11px; color:var(--text-muted); animation:bounce 1.6s ease-in-out infinite; }
-@keyframes bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(5px)} }
+.bottom-hint { position:absolute; bottom:36px; left:50%; transform:translateX(-50%); display:flex; flex-direction:column; align-items:center; gap:12px; opacity:0; animation:fadeIn .8s ease 21.2s forwards; }
+.scroll-txt { font-size:13px; letter-spacing:.45em; color:var(--blossom-deeper); font-weight:700; text-transform:uppercase; text-shadow:0 1px 8px rgba(201,75,123,.3); }
+.scroll-arrow { width:44px; height:44px; border:2px solid var(--blossom-deeper); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:18px; color:var(--blossom-deeper); background:rgba(255,255,255,.5); backdrop-filter:blur(8px); box-shadow:0 4px 20px rgba(201,75,123,.3); animation:bounce 1.4s ease-in-out infinite; }
+@keyframes bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(7px)} }
 
 /* 프로그레스 바 */
 .progress { position:absolute; bottom:0; left:0; height:3px; width:0%; background:linear-gradient(90deg,var(--blossom-deeper),var(--blossom),var(--blossom-deeper)); background-size:200%; animation:progress 25s linear .5s forwards, shimmer 3s ease infinite; z-index:20; border-radius:0 2px 2px 0; }
@@ -259,24 +265,19 @@ html, body {
 
   <div class="text-slot cut1">
     <div class="q-wrap">
-      <p class="q-text">"AI 써야 한다는데...<br><span class="q-hl">어디서부터 시작하지?"</span></p>
+      <p class="q-text">AI 써야 한다는데...<br><span class="q-hl">어디서부터 시작하지?</span></p>
     </div>
   </div>
 
   <div class="text-slot cut2">
-    <p class="big">걱정 마세요<span class="period">.</span></p>
-    <div class="deco">
-      <div class="deco-line"></div>
-      <span class="deco-petal">🌸</span>
-      <div class="deco-line r"></div>
-    </div>
+    <p class="big">걱정 마세요</p>
   </div>
 
   <div class="text-slot cut3">
     <p class="sub">AI is changing the way we work</p>
     <p class="main">
-      <span class="sub-line">일하는 방식이 바뀌고 있습니다.</span>
-      <span class="brand-name">SINOKOR</span>도 바뀝니다.
+      <span class="sub-line">일하는 방식이 바뀌고 있습니다</span>
+      <span class="big-ko">SINOKOR도 바뀝니다</span>
     </p>
   </div>
 
@@ -286,14 +287,14 @@ html, body {
       <span class="tag">AI 도구</span>
       <span class="tag">실무 활용</span>
     </div>
-    <p class="main">처음부터 끝까지<br><span class="accent">한 곳에서.</span></p>
+    <p class="main">처음부터 끝까지<br><span class="accent">한 곳에서</span></p>
   </div>
 
   <div class="text-slot cut5">
     <p class="eyebrow">SINOKOR AI GUIDE 2026</p>
     <div class="card">
       <p class="sub-title">AI 스타터팩</p>
-      <p class="main-title">처음이어도<br>괜찮습니다.</p>
+      <p class="main-title">처음이어도<br>괜찮습니다</p>
       <p class="tagline">지금 바로 <strong>시작</strong>해 보세요.</p>
     </div>
   </div>

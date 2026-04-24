@@ -106,32 +106,6 @@ html, body {
   z-index:10;
 }
 
-/* 상단 바 */
-.top-bar {
-  position:absolute; top:0; left:0; right:0;
-  display:flex; align-items:center; justify-content:space-between;
-  padding:20px 36px;
-  opacity:0; animation:fadeDown .8s ease .4s forwards;
-}
-.logo-area { display:flex; align-items:center; gap:10px; }
-.logo-dot {
-  width:8px; height:8px; border-radius:50%;
-  background:linear-gradient(135deg,var(--blossom-deeper),var(--blossom-deep));
-  box-shadow:0 0 10px rgba(201,75,123,.5);
-  animation:dotPulse 2.2s ease-in-out infinite;
-}
-@keyframes dotPulse {
-  0%,100% { transform:scale(1); box-shadow:0 0 8px rgba(201,75,123,.4); }
-  50%      { transform:scale(1.35); box-shadow:0 0 16px rgba(201,75,123,.7); }
-}
-.logo-text { font-size:12px; letter-spacing:.35em; color:var(--blossom-text); font-weight:500; text-transform:uppercase; }
-.version-badge {
-  font-size:11px; letter-spacing:.15em; color:var(--blossom-deeper);
-  border:1px solid rgba(201,75,123,.3); padding:5px 14px;
-  border-radius:100px; font-weight:500;
-  background:rgba(255,255,255,.5); backdrop-filter:blur(8px);
-}
-@keyframes fadeDown { from{opacity:0;transform:translateY(-10px)} to{opacity:1;transform:translateY(0)} }
 
 /* 텍스트 슬롯 공통 */
 .text-slot { position:absolute; width:100%; text-align:center; padding:0 6%; opacity:0; pointer-events:none; }
@@ -190,6 +164,7 @@ html, body {
   font-size:clamp(48px,8.5vw,100px); font-weight:700; letter-spacing:-.04em;
   background:linear-gradient(135deg,var(--blossom-text) 0%,var(--blossom-deeper) 50%,var(--blossom-deep) 100%);
   -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+  word-break:keep-all;
 }
 
 /* ── 컷 4 ── */
@@ -255,14 +230,6 @@ html, body {
 <canvas class="petal-canvas" id="petalCanvas"></canvas>
 
 <div class="stage">
-  <div class="top-bar">
-    <div class="logo-area">
-      <div class="logo-dot"></div>
-      <span class="logo-text">SINOKOR &nbsp;·&nbsp; AI Guide</span>
-    </div>
-    <span class="version-badge">🌸 벚꽃 에디션 v2</span>
-  </div>
-
   <div class="text-slot cut1">
     <div class="q-wrap">
       <p class="q-text">AI 써야 한다는데...<br><span class="q-hl">어디서부터 시작하지?</span></p>

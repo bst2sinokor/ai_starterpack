@@ -366,6 +366,23 @@
     #vscode-ext .section-title { color: var(--gray-6); }
     #vscode-ext .section-sub { color: var(--blossom-text); }
     #vscode-ext .section-tag { color: var(--blossom-deeper); }
+    /* SECTION 5 — Excel 추가 기능 (라이트) */
+    #excel-addin { background: var(--white); }
+    #excel-addin .vsc-howto {
+      background: var(--gray-1);
+      border: 1px solid var(--gray-2);
+    }
+    #excel-addin .vsc-card {
+      background: var(--white);
+      border: 1.5px solid var(--gray-2);
+    }
+    #excel-addin .vsc-card:hover {
+      background: var(--white);
+      border-color: var(--blossom-deeper);
+      box-shadow: 0 0 0 3px rgba(201,75,123,.08);
+    }
+    #excel-addin .vsc-card p { color: var(--gray-5); }
+    #excel-addin .vsc-how-step { color: var(--gray-5); }
     .vsc-howto {
       background: rgba(255,255,255,.5);
       border-radius: var(--radius);
@@ -429,13 +446,15 @@
     .vsc-link:hover { text-decoration: underline; }
 
     /* =========================================================
-       SECTION — 준비 완료 (라이트)
+       SECTION — 준비 완료 (벚꽃)
     ========================================================= */
     #ready-complete {
-      background: var(--white);
+      background: linear-gradient(135deg, #FFCCE3 0%, #FFB3C6 50%, #FFCCE3 100%);
       text-align: center;
       padding: 100px 24px;
     }
+    #ready-complete .rc-step { background: rgba(255,255,255,.6); }
+    #ready-complete .rc-divider { color: rgba(201,75,123,.45); }
     .rc-inner { max-width: 760px; margin: 0 auto; }
     .rc-badge {
       display: inline-flex; align-items: center; gap: 8px;
@@ -483,12 +502,30 @@
     .rc-cta:hover { background: var(--blue-h); transform: scale(1.03); }
 
     /* =========================================================
-       SECTION — AI 필수도구 사용법 (벚꽃)
+       SECTION — AI 필수도구 사용법 (라이트)
     ========================================================= */
-    #guide { background: linear-gradient(135deg, #FFB3C6 0%, #FFCCE3 50%, #FFB3C6 100%); color: var(--gray-6); }
-    #guide .section-title { color: var(--gray-6); }
-    #guide .section-sub { color: var(--blossom-text); }
-    #guide .section-tag { color: var(--blossom-deeper); }
+    #guide { background: var(--gray-1); color: var(--gray-6); }
+    #guide .guide-tab-btn { background: var(--white); border-color: var(--gray-2); }
+    #guide .guide-tab-btn.active, #guide .guide-tab-btn:hover {
+      background: var(--blossom-deeper); border-color: var(--blossom-deeper); color: var(--white);
+    }
+    #guide .guide-feature-box,
+    #guide .guide-use-box,
+    #guide .guide-how-box {
+      background: var(--white);
+      border: 1px solid var(--gray-2);
+    }
+    #guide .guide-tip {
+      background: var(--white);
+      border-left: 3px solid var(--blossom-deeper);
+      border-top: 1px solid var(--gray-2);
+      border-right: 1px solid var(--gray-2);
+      border-bottom: 1px solid var(--gray-2);
+    }
+    #guide .guide-img-wrap {
+      background: var(--white);
+      border: 1px solid var(--gray-2);
+    }
     .guide-tabs {
       display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 40px;
     }
@@ -665,9 +702,29 @@
     .install-card.choice-card { border-style: dashed; border-color: rgba(201,75,123,.3); }
 
     /* =========================================================
-       SECTION 5 — AI 도구 소개 (라이트)
+       SECTION 5 — AI 도구 소개 (벚꽃)
     ========================================================= */
-    #tools { background: var(--white); }
+    #tools { background: linear-gradient(135deg, #FFCCE3 0%, #FFB3C6 50%, #FFCCE3 100%); }
+    #tools .section-title { color: var(--gray-6); }
+    #tools .section-sub { color: var(--blossom-text); }
+    #tools .section-tag { color: var(--blossom-deeper); }
+    #tools .tab-btn {
+      background: rgba(255,255,255,.55); border-color: rgba(201,75,123,.2); color: var(--blossom-text);
+    }
+    #tools .tab-btn.active, #tools .tab-btn:hover {
+      background: var(--blossom-deeper); color: var(--white); border-color: var(--blossom-deeper);
+    }
+    #tools .tool-card {
+      background: rgba(255,255,255,.55);
+      border-color: rgba(201,75,123,.18);
+    }
+    #tools .tool-card:hover {
+      background: rgba(255,255,255,.78);
+      border-color: var(--blossom-deeper);
+      box-shadow: 0 0 0 3px rgba(201,75,123,.08);
+    }
+    #tools .tool-card p { color: var(--blossom-text); }
+    #tools .tool-link { color: var(--blossom-deeper); }
     .tools-tabs {
       display: flex; gap: 8px; flex-wrap: wrap;
       margin-bottom: 40px;
@@ -702,12 +759,13 @@
     .tool-stars { font-size: 12px; color: #ffd60a; }
 
     /* =========================================================
-       SECTION 6 — 용어 사전 (벚꽃)
+       SECTION 6 — 용어 사전 (라이트)
     ========================================================= */
-    #glossary { background: linear-gradient(135deg, #FFB3C6 0%, #FFD6E7 50%, #FFB3C6 100%); }
-    #glossary .section-title { color: var(--gray-6); }
-    #glossary .section-sub { color: var(--blossom-text); }
-    #glossary .section-tag { color: var(--blossom-deeper); }
+    #glossary { background: var(--white); }
+    #glossary .gloss-item { border-color: var(--gray-2); }
+    #glossary .gloss-q { background: var(--gray-1); }
+    #glossary .gloss-q:hover { background: var(--white); }
+    #glossary .gloss-a { background: var(--gray-1); }
     .glossary-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
@@ -755,9 +813,13 @@
     }
 
     /* =========================================================
-       SECTION 7 — 프롬프트 잘 쓰는 법 (라이트)
+       SECTION 7 — 프롬프트 잘 쓰는 법 (벚꽃)
     ========================================================= */
-    #prompt { background: var(--gray-1); }
+    #prompt { background: linear-gradient(135deg, #FFB3C6 0%, #FFCCE3 50%, #FFB3C6 100%); }
+    #prompt .section-title { color: var(--gray-6); }
+    #prompt .section-sub { color: var(--blossom-text); }
+    #prompt .section-tag { color: var(--blossom-deeper); }
+    #prompt .prompt-templates h3 { color: var(--gray-6); }
     .prompt-compare {
       display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
       margin-bottom: 48px;
@@ -817,12 +879,13 @@
     .copy-btn:hover { text-decoration: underline; }
 
     /* =========================================================
-       SECTION 8 — FAQ (벚꽃)
+       SECTION 8 — FAQ (라이트)
     ========================================================= */
-    #faq { background: linear-gradient(135deg, #FFCCE3 0%, #FFB3C6 50%, #FFCCE3 100%); }
-    #faq .section-title { color: var(--gray-6); }
-    #faq .section-sub { color: var(--blossom-text); }
-    #faq .section-tag { color: var(--blossom-deeper); }
+    #faq { background: var(--gray-1); }
+    #faq .faq-item { border-color: var(--gray-2); }
+    #faq .faq-q { background: var(--white); }
+    #faq .faq-q:hover { background: var(--gray-1); }
+    #faq .faq-a { background: var(--white); }
     .faq-list { display: flex; flex-direction: column; gap: 12px; max-width: 800px; }
     .faq-item {
       border: 1px solid rgba(201,75,123,.15);
@@ -1750,13 +1813,111 @@ SECTION 2 — 프로그램 설치 (다크)
 </section>
 
 <!-- ============================================================
+     SECTION 5 — Excel Add-in (Claude for Excel)
+============================================================ -->
+<section id="excel-addin">
+  <div class="section-inner">
+    <div class="section-tag reveal">Step 05</div>
+    <h2 class="section-title reveal"><img src="https://img.icons8.com/color/96/microsoft-excel-2019.png" alt="Excel 365" style="width:48px;height:48px;border-radius:10px;vertical-align:middle;margin-right:14px;object-fit:contain;">Claude for Excel<br>추가 기능</h2>
+    <p class="section-sub reveal">Microsoft Excel 안에서 Claude를 바로 사용할 수 있는 공식 추가 기능(Add-in). 시트를 떠나지 않고 사이드 패널에서 데이터 가공·수식 작성·보고서 생성을 모두 처리할 수 있어요.</p>
+
+    <!-- 설치 방법 안내 -->
+    <div class="vsc-howto reveal">
+      <div class="vsc-howto-title"><i data-lucide="package" style="width:18px;height:18px;stroke-width:1.8;"></i> Claude for Excel 설치 방법</div>
+      <div class="vsc-howto-steps">
+        <div class="vsc-how-step">
+          <span class="vsc-step-num">1</span>
+          <div>Microsoft Excel을 엽니다. <strong>Microsoft 365 구독</strong>이 있어야 사용 가능하며, Windows·Mac 데스크톱과 Excel for the Web 모두 동일하게 작동해요.</div>
+        </div>
+        <div class="vsc-how-step">
+          <span class="vsc-step-num">2</span>
+          <div>리본 메뉴에서 <strong>삽입(Insert)</strong> 탭을 클릭한 뒤 <strong>추가 기능 가져오기(Get Add-ins)</strong>를 선택하세요. (한국어 환경에서는 <code class="vsc-code">삽입 → 추가 기능</code>)</div>
+        </div>
+        <div class="vsc-how-step">
+          <span class="vsc-step-num">3</span>
+          <div>Office 추가 기능 창의 검색창에 <code class="vsc-code">Claude</code>를 입력하면 <strong>Claude for Excel (by Anthropic)</strong>이 나옵니다. <strong>추가(Add)</strong> 버튼을 클릭하세요.</div>
+        </div>
+        <div class="vsc-how-step">
+          <span class="vsc-step-num">4</span>
+          <div>설치가 끝나면 우측에 Claude 사이드 패널이 자동으로 열립니다. <strong>Sign in</strong>을 누르고 평소 사용하는 <strong>Anthropic(Claude) 계정</strong>으로 로그인하면 끝!</div>
+        </div>
+        <div class="vsc-how-step">
+          <span class="vsc-step-num">5</span>
+          <div>분석할 셀 범위를 시트에서 드래그한 뒤 사이드 패널에 자연어로 지시하세요. <em>"선택한 범위에서 월별 합계를 새 시트에 정리해줘"</em>처럼요.</div>
+        </div>
+      </div>
+      <a href="https://appsource.microsoft.com/en-us/product/office/WA200008426" target="_blank" class="vsc-store-btn">Office AppSource에서 설치 →</a>
+    </div>
+
+    <!-- 주요 기능 카드 -->
+    <div class="vsc-grid">
+
+      <div class="vsc-card reveal">
+        <div class="vsc-card-top">
+          <span class="vsc-icon">📊</span>
+          <span class="badge badge-freemium">💙 프리미엄</span>
+        </div>
+        <h3>데이터 분석·요약</h3>
+        <p>선택한 범위 또는 시트 전체를 읽어 요약, 패턴 분석, 이상치 탐지, 통계 산출까지 자연어 한 줄로 처리합니다.</p>
+      </div>
+
+      <div class="vsc-card reveal">
+        <div class="vsc-card-top">
+          <span class="vsc-icon">🧮</span>
+          <span class="badge badge-freemium">💙 프리미엄</span>
+        </div>
+        <h3>수식 자동 작성</h3>
+        <p>VLOOKUP·INDEX/MATCH·동적 배열 수식 같은 복잡한 함수도 "이런 결과가 나오게 해줘" 한마디로 만들어 줍니다.</p>
+      </div>
+
+      <div class="vsc-card reveal">
+        <div class="vsc-card-top">
+          <span class="vsc-icon">🧹</span>
+          <span class="badge badge-freemium">💙 프리미엄</span>
+        </div>
+        <h3>데이터 정제</h3>
+        <p>날짜·통화·표기 불일치 통일, 결측치 채우기, 중복 행 제거 등 지루한 정리 작업을 한 번에 끝냅니다.</p>
+      </div>
+
+      <div class="vsc-card reveal">
+        <div class="vsc-card-top">
+          <span class="vsc-icon">📑</span>
+          <span class="badge badge-freemium">💙 프리미엄</span>
+        </div>
+        <h3>보고서 자동 생성</h3>
+        <p>원본 데이터에서 요약표·피벗·차트·서식까지 적용한 보고용 시트를 자동으로 만들어 줍니다.</p>
+      </div>
+
+      <div class="vsc-card reveal">
+        <div class="vsc-card-top">
+          <span class="vsc-icon">🔒</span>
+          <span class="badge badge-free">💚 안전</span>
+        </div>
+        <h3>선택 범위 단위 보안</h3>
+        <p>시트 전체가 자동 전송되지 않고, 내가 드래그로 지정한 범위만 Claude에게 전달돼요. 민감 데이터는 범위 한정으로.</p>
+      </div>
+
+      <div class="vsc-card reveal">
+        <div class="vsc-card-top">
+          <span class="vsc-icon">↩️</span>
+          <span class="badge badge-free">💚 안전</span>
+        </div>
+        <h3>미리보기·되돌리기</h3>
+        <p>Claude가 제안한 결과는 <code class="vsc-code">Apply</code>로 적용 전에 미리보기 가능하고, 적용 후에도 <code class="vsc-code">Undo</code>로 즉시 되돌릴 수 있어요.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
      SECTION — 준비 완료
 ============================================================ -->
 <section id="ready-complete">
   <div class="rc-inner">
     <div class="rc-badge reveal"><i data-lucide="check-circle-2" style="width:15px;height:15px;stroke-width:2.5;"></i> 준비 완료</div>
     <h2 class="rc-title reveal">이제 <span>AI를 쓸 준비</span>가<br>모두 끝났어요! 🎉</h2>
-    <p class="rc-sub reveal">계정 만들기부터 프로그램 설치, 확장 프로그램까지 완료했어요.<br>이제 본격적으로 AI 도구를 사용해봅시다!</p>
+    <p class="rc-sub reveal">계정 만들기부터 프로그램 설치, 확장 프로그램, Excel 추가 기능까지 완료했어요.<br>이제 본격적으로 AI 도구를 사용해봅시다!</p>
     <div class="rc-steps reveal">
       <div class="rc-step"><span class="rc-step-num">01</span> 계정 준비</div>
       <span class="rc-divider">→</span>
@@ -1765,6 +1926,8 @@ SECTION 2 — 프로그램 설치 (다크)
       <div class="rc-step"><span class="rc-step-num">03</span> Chrome 확장</div>
       <span class="rc-divider">→</span>
       <div class="rc-step"><span class="rc-step-num">04</span> Antigravity 확장</div>
+      <span class="rc-divider">→</span>
+      <div class="rc-step"><span class="rc-step-num">05</span> Excel 추가 기능</div>
     </div>
     <a href="#guide" class="rc-cta reveal">AI 도구 사용법 배우러 가기 →</a>
   </div>
@@ -3473,6 +3636,7 @@ SECTION 2 — 프로그램 설치 (다크)
           <a href="#install">프로그램 설치</a>
           <a href="#extensions">Chrome 확장</a>
           <a href="#vscode-ext">Antigravity 확장</a>
+          <a href="#excel-addin">Excel 추가 기능</a>
           <a href="#guide">AI 도구 사용법</a>
           <a href="#tools">AI 도구 소개</a>
           <a href="#glossary">용어 사전</a>
